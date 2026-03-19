@@ -84,7 +84,6 @@ ul {
 /* ================================================
    BUTTONS
 ================================================ */
-
 .btn {
   display: inline-block;
   padding: 14px 32px;
@@ -95,15 +94,13 @@ ul {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border: none;
-  border-radius: 499px;
+  border-radius: 2px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .btn:hover {
   background-color: var(--color-button-hover);
 }
-
 .btn-secondary {
   display: inline-block;
   padding: 14px 32px;
@@ -118,12 +115,10 @@ ul {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .btn-secondary:hover {
   background-color: var(--color-button);
   color: #FFFFFF;
 }
-
 .btn-text {
   display: inline;
   font-size: 13px;
@@ -133,7 +128,6 @@ ul {
   padding-bottom: 2px;
   transition: border-color 0.3s ease, color 0.3s ease;
 }
-
 .btn-text:hover {
   color: var(--color-button);
   border-color: var(--color-button);
