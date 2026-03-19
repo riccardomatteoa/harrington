@@ -87,19 +87,20 @@ ul {
 .btn {
   display: inline-block;
   padding: 14px 32px;
-  background-color: #1A1A1A;
-  color: #FFFFFF;
+  background-color: transparent;
+  color: #1A1A1A;
   font-family: var(--font-body);
   font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  border: none;
+  border: 1px solid #1A1A1A;
   border-radius: 2px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 .btn:hover {
-  background-color: #3A3A3A;
+  background-color: #1A1A1A;
+  color: #FFFFFF;
 }
 .btn-secondary {
   display: inline-block;
@@ -119,6 +120,24 @@ ul {
   background-color: #1A1A1A;
   color: #FFFFFF;
 }
+.btn-light {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid #FFFFFF;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-light:hover {
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+}
 .btn-text {
   display: inline;
   font-size: 13px;
@@ -131,71 +150,6 @@ ul {
 .btn-text:hover {
   color: #1A1A1A;
   border-color: #1A1A1A;
-}
-
-/* ================================================
-   FOOTER
-================================================ */
-
-.footer {
-  background-color: var(--color-footer);
-  padding: 80px 5% 32px;
-  text-transform: uppercase;
-}
-
-.footer__top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid rgba(0,0,0,0.15);
-}
-
-.footer__logo {
-  height: 40px;
-  width: auto;
-  margin-bottom: 12px;
-}
-
-.footer__tagline {
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: 15px;
-  color: var(--color-text-soft);
-}
-
-.footer__col-title {
-  font-size: 12px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.footer__col ul {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.footer__col ul li a,
-.footer__col ul li span {
-  font-size: 12px;
-  color: var(--color-text-soft);
-  transition: opacity 0.3s ease;
-}
-
-.footer__col ul li a:hover {
-  opacity: 0.6;
-}
-
-.footer__bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 32px;
-  font-size: 12px;
-  color: var(--color-text-soft);
 }
 
 /* ================================================
