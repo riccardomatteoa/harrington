@@ -88,13 +88,13 @@ ul {
   display: inline-block;
   padding: 14px 32px;
   background-color: var(--color-button);
-  color: #FFFFFF;
+  color: #1A1A1A;
   font-family: var(--font-body);
   font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border: none;
-  border-radius: 0px;
+  border-radius: 2px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -105,19 +105,19 @@ ul {
   display: inline-block;
   padding: 14px 32px;
   background-color: transparent;
-  color: var(--color-button);
+  color: #EDE6DB;
   font-family: var(--font-body);
   font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  border: 1px solid var(--color-button);
-  border-radius: 0px;
+  border: 1px solid #EDE6DB;
+  border-radius: 2px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .btn-secondary:hover {
-  background-color: var(--color-button);
-  color: #FFFFFF;
+  background-color: #EDE6DB;
+  color: #1A1A1A;
 }
 .btn-text {
   display: inline;
