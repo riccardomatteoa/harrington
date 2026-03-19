@@ -9,8 +9,8 @@
   --color-text:         #1A1A1A;
   --color-text-soft:    #6B6560;
   --color-border:       #D9D0C5;
-  --color-button:       #A8926E;
-  --color-button-hover: #8C7858;
+  --color-button:       #1A1A1A;
+  --color-button-hover: #3A3A3A;
 
   --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-body:    'Urbanist', 'Helvetica Neue', sans-serif;
@@ -82,8 +82,63 @@ ul {
 }
 
 /* ================================================
+   NAVBAR
+================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 5%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: transparent;
+}
+
+.navbar.scrolled {
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+.navbar__logo {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+}
+
+.navbar__logo img {
+  height: 36px;
+  width: auto;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.navbar__links a {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition: opacity 0.3s ease;
+}
+
+.navbar__links a:hover {
+  opacity: 0.5;
+}
+
+/* ================================================
    BUTTONS
 ================================================ */
+
 .btn {
   display: inline-block;
   padding: 14px 32px;
@@ -94,14 +149,16 @@ ul {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border: 1px solid #1A1A1A;
-  border-radius: 0px;
+  border-radius: 0;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .btn:hover {
   background-color: #1A1A1A;
   color: #FFFFFF;
 }
+
 .btn-secondary {
   display: inline-block;
   padding: 14px 32px;
@@ -112,14 +169,16 @@ ul {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border: 1px solid #1A1A1A;
-  border-radius: 0px;
+  border-radius: 0;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .btn-secondary:hover {
   background-color: #1A1A1A;
   color: #FFFFFF;
 }
+
 .btn-light {
   display: inline-block;
   padding: 14px 32px;
@@ -130,23 +189,26 @@ ul {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border: 1px solid #FFFFFF;
-  border-radius: 0px;
+  border-radius: 0;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .btn-light:hover {
   background-color: #FFFFFF;
   color: #1A1A1A;
 }
+
 .btn-text {
   display: inline;
   font-size: 13px;
   letter-spacing: 0.08em;
   color: var(--color-text-soft);
   border-bottom: 1px solid var(--color-border);
-  padding-bottom: 0px;
+  padding-bottom: 2px;
   transition: border-color 0.3s ease, color 0.3s ease;
 }
+
 .btn-text:hover {
   color: #1A1A1A;
   border-color: #1A1A1A;
@@ -651,8 +713,87 @@ ul {
 }
 
 /* ================================================
+   FOOTER
+================================================ */
+
+.footer {
+  background-color: var(--color-footer);
+  padding: 80px 5% 40px;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer__logo {
+  height: 40px;
+  width: auto;
+}
+
+.footer__tagline {
+  font-size: 13px;
+  color: var(--color-text-soft);
+  line-height: 1.7;
+}
+
+.footer__col-title {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 20px;
+}
+
+.footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer__col ul li a,
+.footer__col ul li span {
+  font-size: 14px;
+  color: var(--color-text);
+  transition: opacity 0.3s ease;
+}
+
+.footer__col ul li a:hover {
+  opacity: 0.5;
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--color-text-soft);
+}
+
+.footer__bottom a {
+  color: var(--color-text-soft);
+  transition: opacity 0.3s ease;
+}
+
+.footer__bottom a:hover {
+  opacity: 0.5;
+}
+
+/* ================================================
    PORTFOLIO PAGE
 ================================================ */
+
 .portfolio-grid.section {
   padding: 0;
 }
@@ -1024,9 +1165,8 @@ ul {
    SERVICE DETAIL PAGE
 ================================================ */
 
-/* Colored hero */
 .service-color-hero {
-  background-color: var(--color-bg);;
+  background-color: var(--color-bg);
   min-height: 40vh;
   display: flex;
   flex-direction: column;
@@ -1057,7 +1197,6 @@ ul {
   background-color: var(--color-border);
 }
 
-/* Hero image */
 .service-hero-image img {
   width: 100%;
   height: 60vh;
@@ -1065,9 +1204,8 @@ ul {
   display: block;
 }
 
-/* Intro text */
 .service-about {
-  padding: 50px 0 50px 0;
+  padding: 50px 0;
 }
 
 .service-about .service-detail__container {
@@ -1084,7 +1222,6 @@ ul {
   text-align: center;
 }
 
-/* General container */
 .service-detail__container {
   width: min(70%, 1600px);
   margin: 0 auto;
@@ -1095,7 +1232,6 @@ ul {
   padding-top: 80px;
 }
 
-/* Titles and text */
 .service-detail__title {
   font-family: var(--font-heading);
   font-size: 40px;
@@ -1119,7 +1255,6 @@ ul {
   margin-bottom: 16px;
 }
 
-/* Process */
 .service-detail__process .service-detail__title {
   margin-bottom: 48px;
 }
@@ -1133,7 +1268,6 @@ ul {
   padding: 40px 0;
 }
 
-/* Gallery */
 .service-gallery {
   width: min(90%);
   margin: 0 auto;
@@ -1153,7 +1287,6 @@ ul {
   display: block;
 }
 
-/* Deliverables */
 .service-benefits {
   background-color: var(--color-bg);
   padding-bottom: 150px;
@@ -1205,7 +1338,6 @@ ul {
   line-height: 1.9;
 }
 
-/* Related projects */
 .service-projects {
   background-color: var(--color-surface);
   padding: 100px 0;
@@ -1246,7 +1378,6 @@ ul {
   border-color: var(--color-button);
 }
 
-/* FAQ on service pages (transparent background) */
 .service-projects + .faq {
   background-color: transparent;
 }
