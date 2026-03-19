@@ -14,19 +14,6 @@
 <!-- NAVBAR COMPONENT -->
 <div id="navbar"></div>
 
-<script>
-  fetch('navbar.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('navbar').innerHTML = html;
-      const navbar = document.querySelector('.navbar');
-      navbar.classList.add('scrolled');
-      window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
-    });
-</script>
-
-
-
 <main>
 
     <section class="page-header section">
@@ -70,22 +57,29 @@
 
 </main>
 
-<!-- FOOTER COMPONENT -->
-<div id="footer"></div>
-
-<script>
-  fetch('footer.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('footer').innerHTML = html;
-    });
-</script>
-
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.
 
+  <!-- FOOTER COMPONENT -->
+  <div id="footer"></div>
 
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar').innerHTML = html;
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.add('scrolled');
+        window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
+      });
+  </script>
 
-
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer').innerHTML = html;
+      });
+  </script>
 
 </body>
 </html>
