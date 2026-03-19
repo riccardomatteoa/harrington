@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — kobo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar scrolled">
+    <a href="index.html" class="navbar__logo">kobo</a>
+    <ul class="navbar__links">
+        <li><a href="portfolio.html">portfolio</a></li>
+        <li><a href="services.html">services</a></li>
+        <li><a href="about.html">about us</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">Services</h1>
+        </div>
+        <div class="page-header__line"></div>
+    </section>
+
+    <section class="services-list section">
+        <div class="services-list__container">
+
+            <div class="service-item">
+                <div class="service-item__image">
+                    <img src="https://picsum.photos/900/600?random=80" alt="Interior Design">
+                </div>
+                <div class="service-item__content">
+                    <h2 class="service-item__title">Interior Design</h2>
+                    <p class="service-item__tagline">Timeless interiors, thoughtfully composed.</p>
+                    <p class="service-item__text">From initial concept to final installation, each space is shaped through careful attention to proportion, light and material. The result is an environment that feels balanced, refined and deeply personal.</p>
+                    <a href="service-interior.html" class="btn">Discover More</a>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="service-item__image">
+                    <img src="https://picsum.photos/900/600?random=81" alt="Styling & Curation">
+                </div>
+                <div class="service-item__content">
+                    <h2 class="service-item__title">Styling & Curation</h2>
+                    <p class="service-item__tagline">Layered details, effortless harmony.</p>
+                    <p class="service-item__text">Furniture, textiles and objects are selected with intention to enhance atmosphere and elevate everyday living. Every element is curated to create warmth, depth and quiet sophistication.</p>
+                    <a href="service-styling.html" class="btn">Discover More</a>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="service-item__image">
+                    <img src="https://picsum.photos/900/600?random=82" alt="Project Direction">
+                </div>
+                <div class="service-item__content">
+                    <h2 class="service-item__title">Project Direction</h2>
+                    <p class="service-item__tagline">Clarity from vision to completion.</p>
+                    <p class="service-item__text">With a structured and considered approach, each phase of the project is guided with precision. Creative oversight ensures cohesion, quality and a seamless experience from start to finish.</p>
+                    <a href="service-direction.html" class="btn">Discover More</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- FAQ -->
+<section class="faq section">
+    <div class="faq__container">
+
+        <h2 class="faq__title">Frequently Asked Questions</h2>
+
+        <div class="faq__list">
+
+            <div class="faq__item">
+                <button class="faq__question">What is included in your Interior Design service?<span class="faq__icon">+</span></button>
+                <div class="faq__answer">
+                    <p>Our Interior Design service covers everything from initial concept to final installation — spatial planning, material selection, furniture procurement and on-site coordination.</p>
+                </div>
+            </div>
+
+            <div class="faq__item">
+                <button class="faq__question">How do I know which service is right for me?<span class="faq__icon">+</span></button>
+                <div class="faq__answer">
+                    <p>We recommend booking a consultation first. During that conversation we'll understand your needs and guide you towards the most suitable approach for your project.</p>
+                </div>
+            </div>
+
+            <div class="faq__item">
+                <button class="faq__question">How much does a project typically cost?<span class="faq__icon">+</span></button>
+                <div class="faq__answer">
+                    <p>Every project is unique. Costs depend on scope, scale and finish level. We'll provide a clear proposal after the initial consultation.</p>
+                </div>
+            </div>
+
+            <div class="faq__item">
+                <button class="faq__question">How long does a typical project take?<span class="faq__icon">+</span></button>
+                <div class="faq__answer">
+                    <p>A full interior design project typically takes between 3 and 12 months depending on complexity, size and contractor availability.</p>
+                </div>
+            </div>
+
+            <div class="faq__item">
+                <button class="faq__question">Do you work with clients outside of your local area?<span class="faq__icon">+</span></button>
+                <div class="faq__answer">
+                    <p>Yes — we are available for national and international projects. We work remotely where possible and travel when required.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER COMPONENT -->
+<div id="footer"></div>
+
+<script>
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('footer').innerHTML = html;
+    });
+</script>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+<script>
+    docu
+
+<script>
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.add('scrolled');
+  window.addEventListener('scroll', () => {
+    navbar.classList.add('scrolled');
+  });
+</script>
+
+</body>
+</html>

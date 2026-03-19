@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — kobo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar scrolled">
+    <a href="index.html" class="navbar__logo">kobo</a>
+    <ul class="navbar__links">
+        <li><a href="portfolio.html">portfolio</a></li>
+        <li><a href="services.html">services</a></li>
+        <li><a href="about.html">about us</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <section class="page-header section">
+        <div class="container">
+            <h1 class="page-header__title">Portfolio</h1>
+        </div>
+        <div class="page-header__line"></div>
+    </section>
+
+    <section class="portfolio-grid section">
+        <div class="container">
+            <div class="portfolio__grid">
+
+                <a href="project-hilltop.html" class="portfolio__item">
+                    <div class="portfolio__image">
+                        <img src="https://picsum.photos/600/700?random=30" alt="Hilltop Estate">
+                    </div>
+                    <p class="portfolio__location">Los Angeles</p>
+                    <h2 class="portfolio__title">Hilltop Estate</h2>
+                </a>
+
+                <a href="project-willow.html" class="portfolio__item">
+                    <div class="portfolio__image">
+                        <img src="https://picsum.photos/600/700?random=31" alt="The Willow Residence">
+                    </div>
+                    <p class="portfolio__location">Miami</p>
+                    <h2 class="portfolio__title">The Willow Residence</h2>
+                </a>
+
+                <a href="project-sandstone.html" class="portfolio__item">
+                    <div class="portfolio__image">
+                        <img src="https://picsum.photos/600/700?random=32" alt="The Sandstone Residence">
+                    </div>
+                    <p class="portfolio__location">New York City</p>
+                    <h2 class="portfolio__title">The Sandstone Residence</h2>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER COMPONENT -->
+<div id="footer"></div>
+
+<script>
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('footer').innerHTML = html;
+    });
+</script>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.
+
+<script>
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.add('scrolled');
+  window.addEventListener('scroll', () => {
+    navbar.classList.add('scrolled');
+  });
+</script>
+
+</body>
+</html>

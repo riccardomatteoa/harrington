@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — kobo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar scrolled">
+  <a href="index.html" class="navbar__logo">kobo</a>
+  <ul class="navbar__links">
+    <li><a href="portfolio.html">portfolio</a></li>
+    <li><a href="services.html">services</a></li>
+    <li><a href="about.html">about us</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">The story behind the studio</h1>
+    </div>
+    <div class="page-header__line"></div>
+  </section>
+  <section class="about-home">
+    <div class="about-home__image">
+      <img src="https://picsum.photos/600/700?random=5" alt="Melissa">
+    </div>
+    <div class="about-split__content">
+
+      <h2 class="about-page__title">Hi, I'm Melissa.</h2>
+      <p class="about-page__text">I founded this studio from a lifelong sensitivity to the way spaces shape how we feel. For me, design has never been about filling a room, but about creating balance through light, proportion and intention. I am drawn to interiors that feel personal without becoming heavy, refined yet always comfortable enough to be lived in every day.</p>
+      <p class="about-page__text">My approach to design begins with observation. I am naturally drawn to honest materials, calm palettes and layers that bring depth without excess. Rather than imposing a predefined style, I look carefully at what already exists within a space and allow the design to evolve from there. The aim is always to create interiors that feel composed and timeless, yet natural and unforced.</p>
+      <p class="about-page__text">Each project begins with conversation. Listening is an essential part of the process, because every home carries its own rhythm and story. From these early dialogues, ideas take shape gradually and with care. Materials, forms and details are introduced thoughtfully, building layer by layer until the space feels balanced, effortless and deeply connected to the people who live in it.</p>
+      <p class="about-page__text">Designing a home is an intimate process. It requires attention, trust and a shared vision. If you are seeking a space that feels thoughtful, balanced and quietly luxurious, it would be a privilege to create it together.</p>
+
+      <span style="display: inline-block; margin-top: 32px;">
+  </span>
+    </div>
+  </section>
+  <div class="section-divider"></div>
+
+</main>
+
+<!-- FOOTER COMPONENT -->
+<div id="footer"></div>
+
+
+<script>
+  fetch('footer.html')
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById('footer').innerHTML = html;
+          });
+</script>
+
+<script>
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.add('scrolled');
+  window.addEventListener('scroll', () => {
+    navbar.classList.add('scrolled');
+  });
+</script>
+
+</body>
+</html>
