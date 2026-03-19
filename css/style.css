@@ -87,8 +87,8 @@ ul {
 .btn {
   display: inline-block;
   padding: 14px 32px;
-  background-color: var(--color-button);
-  color: #1A1A1A;
+  background-color: #1A1A1A;
+  color: #FFFFFF;
   font-family: var(--font-body);
   font-size: 12px;
   letter-spacing: 0.15em;
@@ -99,25 +99,25 @@ ul {
   transition: background-color 0.3s ease;
 }
 .btn:hover {
-  background-color: var(--color-button-hover);
+  background-color: #3A3A3A;
 }
 .btn-secondary {
   display: inline-block;
   padding: 14px 32px;
   background-color: transparent;
-  color: #EDE6DB;
+  color: #1A1A1A;
   font-family: var(--font-body);
   font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  border: 1px solid #EDE6DB;
+  border: 1px solid #1A1A1A;
   border-radius: 2px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .btn-secondary:hover {
-  background-color: #EDE6DB;
-  color: #1A1A1A;
+  background-color: #1A1A1A;
+  color: #FFFFFF;
 }
 .btn-text {
   display: inline;
@@ -129,59 +129,8 @@ ul {
   transition: border-color 0.3s ease, color 0.3s ease;
 }
 .btn-text:hover {
-  color: var(--color-button);
-  border-color: var(--color-button);
-}
-
-/* ================================================
-   NAVBAR
-================================================ */
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background-color: transparent;
-  padding: 24px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid transparent;
-  transition: background-color 0.4s ease, border-color 0.4s ease;
-}
-
-.navbar.scrolled {
-  background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.navbar__logo img {
-  height: 32px;
-  width: auto;
-}
-
-.navbar__links {
-  display: flex;
-  gap: 40px;
-}
-
-.navbar__links a {
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  transition: color 0.4s ease;
-}
-
-.navbar.scrolled .navbar__logo,
-.navbar.scrolled .navbar__links a {
-  color: var(--color-text);
-}
-
-.navbar__links a:hover {
-  color: var(--color-button);
+  color: #1A1A1A;
+  border-color: #1A1A1A;
 }
 
 /* ================================================
