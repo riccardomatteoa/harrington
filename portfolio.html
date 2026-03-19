@@ -11,14 +11,21 @@
 </head>
 <body>
 
-<nav class="navbar scrolled">
-    <a href="index.html" class="navbar__logo">kobo</a>
-    <ul class="navbar__links">
-        <li><a href="portfolio.html">portfolio</a></li>
-        <li><a href="services.html">services</a></li>
-        <li><a href="about.html">about us</a></li>
-    </ul>
-</nav>
+<!-- NAVBAR COMPONENT -->
+<div id="navbar"></div>
+
+<script>
+  fetch('navbar.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('navbar').innerHTML = html;
+      const navbar = document.querySelector('.navbar');
+      navbar.classList.add('scrolled');
+      window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
+    });
+</script>
+
+
 
 <main>
 
@@ -76,13 +83,9 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.
 
-<script>
-  const navbar = document.querySelector('.navbar');
-  navbar.classList.add('scrolled');
-  window.addEventListener('scroll', () => {
-    navbar.classList.add('scrolled');
-  });
-</script>
+
+
+
 
 </body>
 </html>
