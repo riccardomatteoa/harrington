@@ -803,7 +803,7 @@ ul {
 
 .footer__newsletter-row input {
   flex: 1;
-  padding: 10px 14px;
+  padding: 10px 24px;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -822,7 +822,7 @@ ul {
 }
 
 .footer__newsletter-row button {
-  padding: 10px 20px;
+  padding: 10px 24px;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
