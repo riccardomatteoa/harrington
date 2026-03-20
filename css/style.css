@@ -574,67 +574,11 @@ ul {
 }
 
 /* ================================================
-   HOMEPAGE — ABOUT
-================================================ */
-
-.about {
-  padding: 0;
-}
-
-.about__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  align-items: stretch;
-}
-
-.about__image {
-  background-color: var(--color-surface);
-}
-
-.about__image img {
-  width: 100%;
-  height: 1000px;
-  object-fit: cover;
-}
-
-.about__title {
-  font-family: var(--font-heading);
-  font-size: 64px;
-  font-weight: 400;
-  letter-spacing: -0.02em; 
-  font-style: normal;
-  margin-bottom: 24px;
-  color: var(--color-text);
-}
-
-.about__content {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px;
-}
-
-.about__text {
-  font-size: 16px;
-  color: var(--color-text-soft);
-  line-height: 1.9;
-  margin-bottom: 16px;
-  max-width: 480px;
-}
-
-.about__content .btn-text {
-  margin-top: 16px;
-  display: inline-block;
-}
-
-/* ================================================
    HOMEPAGE — INSTAGRAM
 ================================================ */
 
 .instagram {
-  background-color: var(--color-surface);
+  background-color: var(--color-bg);
   text-align: center;
   padding: 100px 0;
 }
