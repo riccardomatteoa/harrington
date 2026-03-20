@@ -393,10 +393,6 @@ ul {
 /* ================================================
    HOMEPAGE — SERVICES CARDS
 ================================================ */
-.services {
-  background-color: transparent;
-}
-
 .services__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -416,7 +412,7 @@ ul {
 
 .services__card-image img {
   width: 100%;
-  height: 280px;
+  height: 700px;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
