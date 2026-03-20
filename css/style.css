@@ -451,7 +451,6 @@ ul {
   color: var(--color-text-soft);
   line-height: 1.8;
   margin-bottom: 20px;
-  max-width: 260px;
 }
 
 .services__card-link {
