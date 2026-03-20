@@ -733,7 +733,8 @@ ul {
 }
 .footer__logo {
   height: auto;
-  max width: 100px;
+  width: auto;
+  max-width: 120px;
 }
 .footer__tagline {
   font-size: 12px;
