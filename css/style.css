@@ -57,7 +57,7 @@ ul {
 ================================================ */
 
 .container {
-  width: min(70%);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -1003,7 +1003,7 @@ ul {
 }
 
 .services-list__container {
-  width: min(70%);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -1056,7 +1056,7 @@ ul {
 }
 
 .faq__container {
-  width: min(70%, 1600px);
+  width: min(90%);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -1137,7 +1137,7 @@ ul {
   grid-template-columns: 1fr 1.2fr;
   gap: 40px;
   align-items: center;
-  width: min(70%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -1239,7 +1239,7 @@ ul {
 }
 
 .service-detail__container {
-  width: min(70%, 1600px);
+  width: min(90%);
   margin: 0 auto;
   padding-top: 80px;
 }
@@ -1309,7 +1309,7 @@ ul {
 }
 
 .service-benefits__container {
-  width: min(70%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -1360,7 +1360,7 @@ ul {
 }
 
 .service-projects__container {
-  width: min(70%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -1407,7 +1407,7 @@ ul {
 }
 
 .service-form__container {
-  width: min(70%, 1600px);
+  width: min(90%);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
