@@ -782,6 +782,59 @@ ul {
 .footer__bottom a:hover {
   opacity: 0.5;
 }
+
+.footer__newsletter {
+  margin-top: 32px;
+}
+
+.footer__newsletter-label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 12px;
+}
+
+.footer__newsletter-row {
+  display: flex;
+  gap: 0;
+}
+
+.footer__newsletter-row input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  font-family: var(--font-body);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  color: var(--color-text);
+  outline: none;
+}
+
+.footer__newsletter-row input::placeholder {
+  color: var(--color-text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 11px;
+}
+
+.footer__newsletter-row button {
+  padding: 10px 20px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  background-color: var(--color-text);
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.footer__newsletter-row button:hover {
+  opacity: 0.7;
+}
 /* ================================================
    PORTFOLIO PAGE
 ================================================ */
