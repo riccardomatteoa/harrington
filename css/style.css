@@ -364,33 +364,6 @@ ul {
 }
 
 /* ================================================
-   HOMEPAGE — INTRO
-================================================ */
-
-.intro {
-  background-color: #FFFFFF;
-  text-align: center;
-  padding: 100px 0;
-}
-
-.intro__title {
-  font-family: var(--font-heading);
-  font-size: 38px;
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: 20px;
-  color: var(--color-text);
-}
-
-.intro__text {
-  font-size: 16px;
-  color: var(--color-text-soft);
-  max-width: 480px;
-  margin: 0 auto;
-  line-height: 1.9;
-}
-
-/* ================================================
    HOMEPAGE — SERVICES CARDS
 ================================================ */
 .services {
