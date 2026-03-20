@@ -617,7 +617,7 @@ ul {
 ================================================ */
 .footer {
   background-color: var(--color-footer);
-  padding: 80px 40px;
+  padding: 80px 0;
 }
 
 .footer__inner {
