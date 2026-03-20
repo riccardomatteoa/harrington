@@ -469,7 +469,7 @@ ul {
 
 .latest__hero img {
   width: 100%;
-  height: 90vh;
+  height: 40vh;
   object-fit: cover;
   display: block;
 }
