@@ -264,7 +264,7 @@ ul {
 }
 
 .page-content__container {
-  width: min(70%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
