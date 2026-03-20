@@ -719,6 +719,12 @@ ul {
   background-color: var(--color-footer);
   padding: 80px 5% 40px;
 }
+
+.footer__inner {
+  width: min(70%, 1600px);
+  margin: 0 auto;
+}
+
 .footer__top {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
