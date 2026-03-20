@@ -114,7 +114,7 @@ ul {
 
 .navbar__logo img {
   height: auto;
-  width: 100px;
+  width: 150px;
 }
 
 .navbar__links {
@@ -691,8 +691,7 @@ ul {
 }
 .footer__logo {
   height: auto;
-  width: 100px;
-  max-width: 120px;
+  width: 50px;
 }
 .footer__tagline {
   font-size: 12px;
