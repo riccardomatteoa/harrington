@@ -100,7 +100,7 @@ ul {
 }
 
 .navbar.scrolled {
-  background-color: #FFFFFF;
+  background-color: var(--color-bg);
   box-shadow: 0 1px 0 var(--color-border);
 }
 
