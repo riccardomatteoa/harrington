@@ -609,6 +609,7 @@ ul {
 
 .about__image {
   align-self: stretch;
+  background-color: var(--color-surface);
 }
 
 .about__image img {
