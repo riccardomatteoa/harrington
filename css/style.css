@@ -393,6 +393,15 @@ ul {
 /* ================================================
    HOMEPAGE — SERVICES CARDS
 ================================================ */
+.services {
+  background-color: transparent;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
 
 .services__card {
   display: flex;
