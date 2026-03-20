@@ -137,5 +137,18 @@
       });
   </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.faq__question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.parentElement;
+          item.classList.toggle('open');
+        });
+      });
+    }, 100);
+  });
+</script>
+  
 </body>
 </html>
