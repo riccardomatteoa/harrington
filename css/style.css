@@ -715,12 +715,10 @@ ul {
 /* ================================================
    FOOTER
 ================================================ */
-
 .footer {
   background-color: var(--color-footer);
   padding: 80px 5% 40px;
 }
-
 .footer__top {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -728,49 +726,46 @@ ul {
   padding-bottom: 60px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-
 .footer__brand {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .footer__logo {
-  height: 40px;
+  height: auto;
   width: auto;
+  max-width: 120px;
 }
-
 .footer__tagline {
-  font-size: 13px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--color-text-soft);
   line-height: 1.7;
 }
-
 .footer__col-title {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-text-soft);
   margin-bottom: 20px;
 }
-
 .footer__col ul {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-
 .footer__col ul li a,
 .footer__col ul li span {
-  font-size: 14px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--color-text);
   transition: opacity 0.3s ease;
 }
-
 .footer__col ul li a:hover {
   opacity: 0.5;
 }
-
 .footer__bottom {
   display: flex;
   justify-content: space-between;
@@ -778,18 +773,16 @@ ul {
   padding-top: 40px;
   font-size: 12px;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--color-text-soft);
 }
-
 .footer__bottom a {
   color: var(--color-text-soft);
   transition: opacity 0.3s ease;
 }
-
 .footer__bottom a:hover {
   opacity: 0.5;
 }
-
 /* ================================================
    PORTFOLIO PAGE
 ================================================ */
