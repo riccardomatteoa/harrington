@@ -115,7 +115,6 @@ ul {
 .navbar__logo img {
   height: 36px;
   width: auto;
-  max-width: 100px;
 }
 
 .navbar__links {
@@ -733,8 +732,8 @@ ul {
   gap: 16px;
 }
 .footer__logo {
-  height: 26px;
-  width: auto;
+  height: auto;
+  max width: 100px;
 }
 .footer__tagline {
   font-size: 12px;
