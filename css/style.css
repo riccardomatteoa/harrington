@@ -1017,11 +1017,11 @@ ul {
 ================================================ */
 
 .services-list.section {
-  padding-bottom: 0;
+  padding-bottom: 150px 0;
 }
 
 .services-list__container {
-  width: min(70%, 1600px);
+  width: min(70%);
   margin: 0 auto;
 }
 
