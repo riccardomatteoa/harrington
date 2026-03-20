@@ -721,7 +721,7 @@ ul {
 }
 
 .footer__inner {
-  width: min(70%, 1600px);
+  width: min(70%);
   margin: 0 auto;
 }
 
