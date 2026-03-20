@@ -115,6 +115,7 @@ ul {
 .navbar__logo img {
   height: 36px;
   width: auto;
+  max-width: 100px;
 }
 
 .navbar__links {
