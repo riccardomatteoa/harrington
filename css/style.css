@@ -367,7 +367,7 @@ ul {
    HOMEPAGE — SERVICES CARDS
 ================================================ */
 .services {
-  background-color: transparent;
+  background-color: var(--color-bg);
   padding: 150px 0;
 }
 
