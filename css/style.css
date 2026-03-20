@@ -1,22 +1,4 @@
 /* ================================================
-   CSS VARIABLES
-================================================ */
-
-:root {
-  --color-bg:           #F5F0E8;
-  --color-surface:      #EDE6DB;
-  --color-footer:       #C8B89A;
-  --color-text:         #1A1A1A;
-  --color-text-soft:    #6B6560;
-  --color-border:       #D9D0C5;
-  --color-button:       #1A1A1A;
-  --color-button-hover: #3A3A3A;
-
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'Urbanist', 'Helvetica Neue', sans-serif;
-}
-
-/* ================================================
    RESET
 ================================================ */
 
@@ -50,6 +32,24 @@ a {
 
 ul {
   list-style: none;
+}
+
+/* ================================================
+   CSS VARIABLES
+================================================ */
+
+:root {
+  --color-bg:           #F5F0E8;
+  --color-surface:      #EDE6DB;
+  --color-footer:       #C8B89A;
+  --color-text:         #1A1A1A;
+  --color-text-soft:    #6B6560;
+  --color-border:       #D9D0C5;
+  --color-button:       #1A1A1A;
+  --color-button-hover: #3A3A3A;
+
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Urbanist', 'Helvetica Neue', sans-serif;
 }
 
 /* ================================================
