@@ -61,7 +61,7 @@ ul {
 ================================================ */
 
 .container {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -358,7 +358,7 @@ ul {
 }
 
 .page-content__container {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -774,7 +774,7 @@ ul {
 }
 
 .footer__inner {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -1022,7 +1022,7 @@ ul {
   grid-template-columns: 280px 1fr;
   gap: 0;
   align-items: start;
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
   padding: 80px 0;
 }
@@ -1111,7 +1111,7 @@ ul {
 }
 
 .services-list__container {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -1164,7 +1164,7 @@ ul {
 }
 
 .faq__container {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -1245,7 +1245,7 @@ ul {
   grid-template-columns: 1fr 1.2fr;
   gap: 40px;
   align-items: center;
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -1301,7 +1301,7 @@ ul {
 }
 
 .service-color-hero__inner {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
   padding-bottom: 56px;
 }
@@ -1347,7 +1347,7 @@ ul {
 }
 
 .service-detail__container {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
   padding-top: 80px;
 }
@@ -1393,7 +1393,7 @@ ul {
 }
 
 .service-gallery {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
   padding: 150px 0;
 }
@@ -1417,7 +1417,7 @@ ul {
 }
 
 .service-benefits__container {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -1468,7 +1468,7 @@ ul {
 }
 
 .service-projects__container {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
 }
 
@@ -1515,7 +1515,7 @@ ul {
 }
 
 .service-form__container {
-  width: min(90%, 1600px);
+  width: min(90%);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
