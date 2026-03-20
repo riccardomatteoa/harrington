@@ -732,9 +732,8 @@ ul {
   gap: 16px;
 }
 .footer__logo {
-  height: auto;
+  height: 26px;
   width: auto;
-  max-width: 120px;
 }
 .footer__tagline {
   font-size: 12px;
