@@ -592,10 +592,6 @@ ul {
   z-index: 1;
 }
 
-/* ================================================
-   HOMEPAGE — ABOUT
-================================================ */
-
 .about {
   padding: 0;
 }
@@ -603,19 +599,19 @@ ul {
 .about__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 0;
   align-items: stretch;
 }
 
 .about__image {
-  align-self: stretch;
   background-color: var(--color-surface);
 }
 
 .about__image img {
   width: 100%;
-  height: 1000px;
+  height: 100%;
   object-fit: cover;
+  min-height: 700px;
 }
 
 .about__title {
