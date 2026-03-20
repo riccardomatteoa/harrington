@@ -746,7 +746,7 @@ ul {
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-text-soft);
+  color: var(--color-text);
   margin-bottom: 20px;
 }
 .footer__col ul {
@@ -759,7 +759,7 @@ ul {
   font-size: 12px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: var(--color-text-soft);
   transition: opacity 0.3s ease;
 }
 .footer__col ul li a:hover {
