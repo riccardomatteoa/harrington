@@ -107,8 +107,25 @@
         document.getElementById('navbar').innerHTML = html;
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
-          navbar.classList.toggle('scrolled', window.scrollY > 50);
+          navbar.classList.toggle('scrolled', window.scrollY > 200);
         });
+
+        const hamburger = document.querySelector('.navbar__hamburger');
+        const mobileMenu = document.querySelector('.navbar__mobile-menu');
+        if (hamburger && mobileMenu) {
+          hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+          });
+          document.querySelectorAll('.navbar__mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+              hamburger.classList.remove('open');
+              mobileMenu.classList.remove('open');
+              document.body.style.overflow = '';
+            });
+          });
+        }
       });
   </script>
 

@@ -68,6 +68,23 @@
         const navbar = document.querySelector('.navbar');
         navbar.classList.add('scrolled');
         window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
+
+        const hamburger = document.querySelector('.navbar__hamburger');
+        const mobileMenu = document.querySelector('.navbar__mobile-menu');
+        if (hamburger && mobileMenu) {
+          hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+          });
+          document.querySelectorAll('.navbar__mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+              hamburger.classList.remove('open');
+              mobileMenu.classList.remove('open');
+              document.body.style.overflow = '';
+            });
+          });
+        }
       });
   </script>
 
