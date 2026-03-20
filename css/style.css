@@ -790,6 +790,13 @@ ul {
   opacity: 0.5;
 }
 
+.footer__social {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: var(--color-text);
+}
+
 .footer__newsletter {
   margin-top: 32px;
 }
