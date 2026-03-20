@@ -141,7 +141,7 @@ ul {
 
 .btn {
   display: inline-block;
-  padding: 14px 32px;
+  padding: 10px 24px;
   background-color: transparent;
   color: #1A1A1A;
   font-family: var(--font-body);
@@ -161,7 +161,7 @@ ul {
 
 .btn-secondary {
   display: inline-block;
-  padding: 14px 32px;
+  padding: 10px 24px;
   background-color: transparent;
   color: #1A1A1A;
   font-family: var(--font-body);
@@ -181,7 +181,7 @@ ul {
 
 .btn-light {
   display: inline-block;
-  padding: 14px 32px;
+  padding: 10px 24px;
   background-color: transparent;
   color: #FFFFFF;
   font-family: var(--font-body);
