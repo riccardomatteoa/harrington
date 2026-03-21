@@ -1184,6 +1184,7 @@ ul {
   color: var(--color-text);
   margin-bottom: 32px;
   opacity: 0.7;
+  display: block;
 }
 
 .about-services__item-title {
