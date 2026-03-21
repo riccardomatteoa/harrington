@@ -1151,7 +1151,7 @@ ul {
   color: var(--color-text-soft);
   line-height: 1.9;
   margin-bottom: 20px;
-  max-width: 520px;
+  width: 100%;
 }
 
 /* ================================================
