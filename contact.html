@@ -6,7 +6,7 @@
   <title>Contact — Harrington</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -17,60 +17,60 @@
   <main>
 
     <section class="service-color-hero">
-        <div class="service-color-hero__inner">
-            <h1 class="service-color-hero__title">Contact</h1>
-        </div>
-        <div class="service-color-hero__line"></div>
+      <div class="service-color-hero__inner">
+        <h1 class="service-color-hero__title">Contact</h1>
+      </div>
+      <div class="service-color-hero__line"></div>
     </section>
 
     <div class="service-hero-image">
-        <img src="https://picsum.photos/1600/900?random=90" alt="Contact">
+      <img src="https://picsum.photos/1600/900?random=90" alt="Contact">
     </div>
 
     <section class="service-form">
-        <div class="service-form__container">
-            <div class="service-form__left">
-                <h2 class="service-detail__title">Get in touch</h2>
-            </div>
-            <div class="service-form__right">
-                <form name="contact" netlify class="consultation-form">
-                    <p class="service-form__intro">Have a question or compliment? Let us know in the form below.</p>
-                    <div class="consultation-form__field">
-                        <label>Full name</label>
-                        <input type="text">
-                    </div>
-                    <div class="consultation-form__field">
-                        <label>Email address</label>
-                        <input type="email">
-                    </div>
-                    <div class="consultation-form__field">
-                        <label>Message</label>
-                        <textarea rows="6"></textarea>
-                    </div>
-                    <button type="submit" class="consultation-form__submit btn">Send Message</button>
-                </form>
-            </div>
+      <div class="service-form__container">
+        <div class="service-form__left">
+          <h2 class="service-detail__title">Get in touch</h2>
         </div>
+        <div class="service-form__right">
+          <form name="contact" netlify class="consultation-form">
+            <p class="service-form__intro">Have a question or compliment? Let us know in the form below.</p>
+            <div class="consultation-form__field">
+              <label>Full name</label>
+              <input type="text">
+            </div>
+            <div class="consultation-form__field">
+              <label>Email address</label>
+              <input type="email">
+            </div>
+            <div class="consultation-form__field">
+              <label>Message</label>
+              <textarea rows="6"></textarea>
+            </div>
+            <button type="submit" class="consultation-form__submit btn">Send Message</button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <div class="section-divider"></div>
 
     <section class="instagram section" style="background-color: transparent;">
-        <div class="container">
-            <p class="instagram__label">Follow us</p>
-            <p class="instagram__handle">@kobodesign</p>
-            <div class="instagram__grid">
-                <img src="https://picsum.photos/300/300?random=6" alt="Instagram post">
-                <img src="https://picsum.photos/300/300?random=7" alt="Instagram post">
-                <img src="https://picsum.photos/300/300?random=8" alt="Instagram post">
-                <img src="https://picsum.photos/300/300?random=9" alt="Instagram post">
-                <img src="https://picsum.photos/300/300?random=11" alt="Instagram post">
-                <img src="https://picsum.photos/300/300?random=12" alt="Instagram post">
-            </div>
+      <div class="container">
+        <p class="instagram__label">Follow us</p>
+        <p class="instagram__handle">@harringtondesign</p>
+        <div class="instagram__grid">
+          <img src="https://picsum.photos/300/300?random=6" alt="Instagram post">
+          <img src="https://picsum.photos/300/300?random=7" alt="Instagram post">
+          <img src="https://picsum.photos/300/300?random=8" alt="Instagram post">
+          <img src="https://picsum.photos/300/300?random=9" alt="Instagram post">
+          <img src="https://picsum.photos/300/300?random=11" alt="Instagram post">
+          <img src="https://picsum.photos/300/300?random=12" alt="Instagram post">
         </div>
+      </div>
     </section>
 
-</main>
+  </main>
 
   <!-- FOOTER COMPONENT -->
   <div id="footer"></div>
@@ -83,6 +83,22 @@
         const navbar = document.querySelector('.navbar');
         navbar.classList.add('scrolled');
         window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
+        const hamburger = document.querySelector('.navbar__hamburger');
+        const mobileMenu = document.querySelector('.navbar__mobile-menu');
+        if (hamburger && mobileMenu) {
+          hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+          });
+          document.querySelectorAll('.navbar__mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+              hamburger.classList.remove('open');
+              mobileMenu.classList.remove('open');
+              document.body.style.overflow = '';
+            });
+          });
+        }
       });
   </script>
 
