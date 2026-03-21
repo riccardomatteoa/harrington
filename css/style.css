@@ -1154,6 +1154,52 @@ ul {
   width: 100%;
 }
 
+.about-services {
+  background-color: var(--color-surface);
+  padding: 120px 0;
+}
+
+.about-services__container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.about-services__title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 80px;
+}
+
+.about-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+}
+
+.about-services__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-text);
+  margin-bottom: 32px;
+  opacity: 0.7;
+}
+
+.about-services__item-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.about-services__item-text {
+  font-size: 15px;
+  color: var(--color-text-soft);
+  line-height: 1.9;
+}
+
 /* ================================================
    SERVICE DETAIL PAGE
 ================================================ */
