@@ -47,55 +47,6 @@
       </div>
     </section>
 
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Harrington</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-  <!-- NAVBAR COMPONENT -->
-  <div id="navbar"></div>
-
-  <main>
-
-    <section class="page-header">
-      <div class="container">
-        <h1 class="page-header__title">The story behind the studio</h1>
-      </div>
-      <div class="page-header__line"></div>
-    </section>
-
-    <div class="about-full-image">
-      <img src="https://picsum.photos/1600/800?random=5" alt="Harrington Studio">
-    </div>
-
-    <section class="about-quote">
-      <div class="about-quote__container">
-        <p class="about-quote__text">We design for the way you live — not for the photograph, not for the moment, but for the years ahead, when a home has settled into itself and feels as though it could never have existed any other way.</p>
-      </div>
-    </section>
-
-    <section class="about-story">
-      <div class="about-story__image">
-        <img src="https://picsum.photos/800/1000?random=15" alt="Eleanor Voss">
-      </div>
-      <div class="about-story__content">
-        <h2 class="about-story__title">Our mission is to transform the places you call home into spaces that feel timeless, considered and unmistakably yours.</h2>
-        <p class="about-story__text">Harrington was founded in New York City in 2006 by Eleanor Voss, a designer whose work has always been guided by a singular conviction: that a home should feel as considered as it is beautiful.</p>
-        <p class="about-story__text">Eleanor's approach to interior design draws from a deep appreciation for craftsmanship, natural materials and the quiet intelligence of well-proportioned space. Trained in architecture and decorative arts, she established Harrington with the intention of creating a practice defined not by trend, but by a timeless sensibility rooted in quality, restraint and a profound understanding of how people live.</p>
-        <p class="about-story__text">Over nearly two decades, Harrington has become synonymous with the New Heritage aesthetic — an approach that honours traditional craft and enduring materials while embracing the ease and warmth of contemporary living. Each project is shaped by a careful dialogue between the architecture of the space, the lives of its inhabitants and the natural character of the materials selected.</p>
-        <p class="about-story__text">Harrington works exclusively with private residential clients, both in New York City and internationally, on projects where design is understood as a long-term investment. The studio's portfolio spans landmark apartments on the Upper East Side, estate homes across the Hamptons and commissions in London, Paris and Milan.</p>
-        <p class="about-story__text">Every project undertaken by the studio is led personally by Eleanor, ensuring that the vision, the craft and the detail remain uncompromised from the first conversation to the final installation. It is this commitment — to people, to place and to the enduring value of thoughtful design — that has defined Harrington since its founding.</p>
-      </div>
-    </section>
-
     <section class="about-services">
       <div class="about-services__container">
         <h2 class="about-services__title">What We Do</h2>
@@ -179,44 +130,6 @@
     <div class="section-divider"></div>
 
   </main>
-
-  <!-- FOOTER COMPONENT -->
-  <div id="footer"></div>
-
-  <script>
-    fetch('navbar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('navbar').innerHTML = html;
-        const navbar = document.querySelector('.navbar');
-        navbar.classList.add('scrolled');
-        window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
-        const hamburger = document.querySelector('.navbar__hamburger');
-        const mobileMenu = document.querySelector('.navbar__mobile-menu');
-        if (hamburger && mobileMenu) {
-          hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('open');
-            mobileMenu.classList.toggle('open');
-            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-          });
-          document.querySelectorAll('.navbar__mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-              hamburger.classList.remove('open');
-              mobileMenu.classList.remove('open');
-              document.body.style.overflow = '';
-            });
-          });
-        }
-      });
-  </script>
-
-  <script>
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('footer').innerHTML = html;
-      });
-  </script>
 
 </body>
 </html>
