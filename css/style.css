@@ -652,7 +652,6 @@ ul {
   font-family: var(--font-heading);
   font-size: 16px;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
   color: var(--color-text);
   margin-bottom: 40px;
 }
