@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Selected Residential Works</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="navbar"></div>
+  <div id="popup"></div>
+
+  <main>
+    <section class="page-header section">
+      <div class="container">
+        <h1 class="page-header__title">Portfolio</h1>
+      </div>
+      <div class="page-header__line"></div>
+    </section>
+
+    <section class="portfolio-grid section">
+      <div class="container">
+
+        <div class="portfolio__filter">
+          <button class="portfolio__filter-toggle" onclick="toggleFilter()">
+            <span>Filter</span>
+            <span id="filterIcon">+</span>
+          </button>
+          <div class="portfolio__filter-panel" id="filterPanel">
+            <div class="portfolio__filter-group">
+              <p class="portfolio__filter-label">Location</p>
+              <div class="portfolio__filter-options" id="filterLocations">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+            <div class="portfolio__filter-group">
+              <p class="portfolio__filter-label">Interior Style</p>
+              <div class="portfolio__filter-options" id="filterStyles">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+            <div class="portfolio__filter-group portfolio__filter-group--reset">
+              <button class="portfolio__filter-reset" onclick="resetFilter()">Clear all</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio__grid" id="portfolioGrid">
+          <!-- Populated by JS -->
+        </div>
+        <div class="portfolio__no-results" id="noResults">No results found</div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar').innerHTML = html;
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.add('scrolled');
+        window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
+      });
+  </script>
+
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer').innerHTML = html;
+      });
+  </script>
+
+  <script>
+    const activeTags = new Set();
+
+    function toggleFilter() {
+      const panel = document.getElementById('filterPanel');
+      const icon  = document.getElementById('filterIcon');
+      panel.classList.toggle('open');
+      icon.textContent = panel.classList.contains('open') ? '−' : '+';
+    }
+
+    function toggleTag(tag, btn) {
+      if (activeTags.has(tag)) {
+        activeTags.delete(tag);
+        btn.classList.remove('active');
+      } else {
+        activeTags.add(tag);
+        btn.classList.add('active');
+      }
+      applyFilter();
+    }
+
+    function resetFilter() {
+      activeTags.clear();
+      document.querySelectorAll('.portfolio__filter-btn').forEach(b => b.classList.remove('active'));
+      applyFilter();
+    }
+
+    function applyFilter() {
+      let visibleCount = 0;
+      document.querySelectorAll('.portfolio__item').forEach(item => {
+        const tags = item.getAttribute('data-tags');
+        if (activeTags.size === 0) {
+          item.style.display = 'block';
+          visibleCount++;
+        } else {
+          const match = [...activeTags].every(tag => tags.includes(tag));
+          item.style.display = match ? 'block' : 'none';
+          if (match) visibleCount++;
+        }
+      });
+      const noResults = document.getElementById('noResults');
+      const grid      = document.getElementById('portfolioGrid');
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      grid.style.display      = visibleCount === 0 ? 'none'  : 'grid';
+    }
+  </script>
+
+  <!-- PORTFOLIO GRID LOADER -->
+  <script>
+    fetch('projects.json')
+      .then(res => res.json())
+      .then(data => {
+        const grid = document.getElementById('portfolioGrid');
+
+        // Collect unique locations and styles for filter buttons
+        const locations = new Set();
+        const styles    = new Set();
+
+        // Build grid cards
+        grid.innerHTML = Object.entries(data).sort(([, a], [, b]) => new Date(b.date) - new Date(a.date)).map(([id, project]) => {
+          // Extract tags
+          const tagList = project.tags.split(' ');
+          tagList.forEach(tag => {
+            // Heuristic: single-word tags that match location go to locations
+            if (tag === project.location) locations.add(tag);
+            else styles.add(tag);
+          });
+
+          return `
+            <a href="project.html?id=${id}" class="portfolio__item" data-tags="${project.tags}">
+              <div class="portfolio__image">
+                <img src="${project.cover}" alt="${project.title}">
+              </div>
+              <p class="portfolio__location">${project.location}</p>
+              <h2 class="portfolio__title">${project.title}</h2>
+            </a>
+          `;
+        }).join('');
+
+        // Build location filter buttons
+        document.getElementById('filterLocations').innerHTML = [...locations].map(loc =>
+          `<button class="portfolio__filter-btn" onclick="toggleTag('${loc}', this)">${loc.charAt(0).toUpperCase() + loc.slice(1)}</button>`
+        ).join('');
+
+        // Build style filter buttons — capitalize each word
+        document.getElementById('filterStyles').innerHTML = [...styles].map(style => {
+          // group multi-word styles by joining adjacent style tags
+          const label = style.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+          return `<button class="portfolio__filter-btn" onclick="toggleTag('${style}', this)">${label}</button>`;
+        }).join('');
+      });
+  </script>
+
+  <script src="main.js"></script>
+
+  <script>
+    if (!sessionStorage.getItem('popupShown')) {
+      fetch('popup.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('popup').innerHTML = html;
+          sessionStorage.setItem('popupShown', 'true');
+          document.body.style.overflow = 'hidden';
+        });
+    }
+  </script>
+</body>
+</html>

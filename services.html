@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Interior Design & Architecture</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR COMPONENT -->
+  <div id="navbar"></div>
+
+  <div id="popup"></div>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-header__title">Services</h1>
+      </div>
+      <div class="page-header__line"></div>
+    </section>
+
+    <section class="services-list section">
+      <div class="services-list__container" id="servicesList">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FAQ -->
+  <section class="faq section">
+    <div class="faq__container">
+
+      <h2 class="faq__title">Frequently Asked Questions</h2>
+
+      <div class="faq__list">
+
+        <div class="faq__item">
+          <button class="faq__question">What does your Interior Design service include?<span class="faq__icon">+</span></button>
+          <div class="faq__answer">
+            <p>Our Interior Design service covers the full process, from concept development and spatial planning to material selection, custom detailing, procurement and final installation. Each phase is carefully managed to ensure a cohesive and fully realised result.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">How do we begin working together?<span class="faq__icon">+</span></button>
+          <div class="faq__answer">
+            <p>The process begins with an initial consultation. This allows us to understand the scope of the project, your objectives and the context of the space, before defining the most appropriate design approach.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">How are projects typically structured in terms of budget?<span class="faq__icon">+</span></button>
+          <div class="faq__answer">
+            <p>Each project is tailored to its specific requirements. Budgets are defined based on scope, scale and level of finish, with a clear proposal provided following the initial design phase.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">What is the typical project timeline?<span class="faq__icon">+</span></button>
+          <div class="faq__answer">
+            <p>Timelines vary depending on the size and complexity of the project. A full residential interior typically ranges from several months to over a year, including design development and execution.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question">Do you work internationally?<span class="faq__icon">+</span></button>
+          <div class="faq__answer">
+            <p>Yes. The studio is based in Manhattan and works on both national and international projects, collaborating with local partners where required to ensure consistent quality and delivery.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER COMPONENT -->
+  <div id="footer"></div>
+
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar').innerHTML = html;
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.add('scrolled');
+        window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
+      });
+  </script>
+
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer').innerHTML = html;
+      });
+  </script>
+
+  <!-- SERVICES LIST LOADER -->
+  <script>
+    fetch('services.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('servicesList').innerHTML = Object.entries(data).map(([id, s]) => `
+          <div class="service-item">
+            <div class="service-item__image">
+              <img src="${s.card}" alt="${s.title}">
+            </div>
+            <div class="service-item__content">
+              <h2 class="service-item__title">${s.title}</h2>
+              <p class="service-item__tagline">${s.tagline}</p>
+              <p class="service-item__text">${s.text}</p>
+              <a href="service.html?id=${id}" class="btn">Discover More</a>
+            </div>
+          </div>
+        `).join('');
+      });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.faq__question').forEach(btn => {
+          btn.addEventListener('click', () => {
+            btn.parentElement.classList.toggle('open');
+          });
+        });
+      }, 100);
+    });
+  </script>
+
+  <script src="main.js"></script>
+
+  <script>
+    if (!sessionStorage.getItem('popupShown')) {
+      fetch('popup.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('popup').innerHTML = html;
+          sessionStorage.setItem('popupShown', 'true');
+          document.body.style.overflow = 'hidden';
+        });
+    }
+  </script>
+
+</body>
+</html>

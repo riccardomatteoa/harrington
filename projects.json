@@ -1,0 +1,53 @@
+{
+  "sandstone": {
+    "date": "2020-04-03",
+    "featured": true,
+    "title": "The Sandstone Residence",
+    "location": "arizona",
+    "cover": "img/sandstone/sandstone-cover.webp",
+    "tags": "arizona desert contemporary",
+    "hero": "img/sandstone/sandstone-hero.webp",
+    "sections": {
+      "living":   { "img": "img/sandstone/sandstone-living.webp",   "text": "Drawn directly from the desert palette that surrounds it, the living room at Sandstone is an exercise in tonal restraint. Walls in polished plaster reflect the warm ochres and dusty roses of the Arizona landscape at dusk. Low-slung seating in cognac leather, a woven jute rug and sculptural pottery sourced from local artisans complete a space that feels elemental and deeply rooted in its setting." },
+      "kitchen":  { "img": "img/sandstone/sandstone-kitchen.webp",  "text": "The kitchen was designed around a single material: a hand-cut terracotta tile, laid in a traditional pattern across the floors and splashback. Against this warmth, cabinetry in a pale putty tone and countertops in aged sandstone create a composition that reads as both contemporary and timeless. Copper fittings add a note of craft that honours the region's metalworking heritage." },
+      "dining":   { "img": "img/sandstone/sandstone-dining.webp",   "text": "A circular dining table in cast concrete sits at the heart of an open-plan space designed for indoor-outdoor living. The curved geometry softens the architecture and encourages a sense of gathering. Chairs in a desert-rose linen and a ceiling punctuated by recessed clay plaster niches referencing traditional Pueblo architecture lend the space a layered cultural depth." },
+      "bedroom":  { "img": "img/sandstone/sandstone-bedroom.webp",  "text": "The master bedroom opens fully to a private courtyard through floor-to-ceiling pivoting doors, dissolving the boundary between interior and exterior. A bed in hand-carved mesquite wood, layers of natural linen and a ceiling fan in woven cane create an atmosphere suited to the long, warm nights of the Arizona high desert." },
+      "bathroom": { "img": "img/sandstone/sandstone-bathroom.webp", "text": "An outdoor shower enclosed within a private courtyard was the defining gesture of the master bathroom. Inside, walls are finished in a rough-hewn travertine tile, a double vanity in dark-stained wood and a deep soaking tub positioned beneath a rooflight open to the sky. Water, stone and light — nothing more, nothing less." },
+      "outdoor":  { "img": "img/sandstone/sandstone-outdoor.webp",  "text": "The outdoor spaces at Sandstone were designed as extensions of the interior — not as afterthoughts, but as rooms without walls. A shaded loggia for afternoon reading, a fire pit for desert evenings and a plunge pool set flush with the terrace level create a sequence of spaces that respond to the rhythms of the land and the light throughout the day." }
+    }
+  },
+  "mountain-view": {
+     "date": "2025-03-14",
+    "featured": true,
+    "title": "Mountain View Estate",
+    "location": "montana",
+    "cover": "img/mountain-view/mountain-cover.webp",
+    "tags": "montana rustic mountain",
+    "hero": "img/mountain-view/mountain-hero.webp",
+    "sections": {
+      "living":   { "img": "img/mountain-view/mountain-living.webp",   "text": "The living room was conceived as a frame for the landscape beyond. Floor-to-ceiling glazing draws the mountains directly into the interior, while the palette — raw timber, aged leather, undyed wool — echoes the terrain without attempting to replicate it. A fireplace in stacked stone anchors the room and defines its emotional centre." },
+      "kitchen":  { "img": "img/mountain-view/mountain-kitchen.webp",  "text": "Designed for family gatherings and long winter evenings, the kitchen balances robust materiality with refined detail. A working island in honed granite, cabinetry in oiled walnut and a professional-grade range sit beneath exposed timber beams — a composition that feels rooted in the landscape and entirely of its place." },
+      "dining":   { "img": "img/mountain-view/mountain-dining.webp",   "text": "A long table in solid reclaimed oak seats fourteen, positioned to capture the last light of the mountain evenings. The chairs, upholstered in a stone-coloured bouclé, are bespoke to this project. A single sculptural pendant in blackened iron draws the eye upward to the double-height ceiling above." },
+      "bedroom":  { "img": "img/mountain-view/mountain-bedroom.webp",  "text": "The master bedroom was designed as a sanctuary removed from the scale of the main living spaces. Lower ceilings, softer materials and a warmer palette — deep taupe, aged linen, burnished brass — create an intimacy appropriate to rest. A custom headboard in channel-tufted wool runs the full width of the wall." },
+      "bathroom": { "img": "img/mountain-view/mountain-bathroom.webp", "text": "Clad entirely in a bookmatched marble with warm ochre veining, the master bathroom draws its palette directly from the surrounding rock formations. A freestanding soaking tub is positioned at the window to face the ridge at dawn. Fixtures in brushed nickel and joinery in pale ash complete a space of quiet ceremony." },
+      "outdoor":  { "img": "img/mountain-view/mountain-outdoor.webp",  "text": "The terrace extends the living spaces outward into the estate grounds. Weathered teak furniture, deep-cushioned seating and a built-in fire pit create a space suited to all seasons. The planting — native grasses, low alpine shrubs — was chosen to reinforce the continuity between designed landscape and wild terrain." }
+    }
+  },
+  "willow": {
+    "date": "2023-09-08",
+    "featured": true,
+    "title": "The Willow Residence",
+    "location": "florida",
+    "cover": "img/willow/willow-cover.webp",
+    "tags": "florida coastal",
+    "hero": "img/willow/willow-hero.webp",
+    "sections": {
+      "living":   { "img": "img/willow/willow-living.webp",   "text": "A sun-drenched living room designed around the rhythm of coastal light. Linen sofas in warm ivory, a low travertine coffee table and layered natural textiles create an atmosphere of effortless ease — refined without being precious, relaxed without being careless." },
+      "kitchen":  { "img": "img/willow/willow-kitchen.webp",  "text": "The kitchen was designed as a space for unhurried mornings and generous entertaining. Matte plaster cabinetry, unlacquered brass fittings and a honed stone island surface bring warmth and tactility to a layout that is as functional as it is beautiful." },
+      "dining":   { "img": "img/willow/willow-dining.webp",   "text": "A dining space conceived for long evenings and good conversation. The oval table in bleached oak seats ten comfortably, surrounded by chairs upholstered in a hand-woven fabric sourced from a family workshop in Portugal. Pendant lighting in aged rattan completes the composition." },
+      "bedroom":  { "img": "img/willow/willow-bedroom.webp",  "text": "The master bedroom was approached as a place of quiet restoration. A neutral palette of sand, stone and pale linen was chosen not for minimalism's sake, but for the way these tones hold morning light. Bespoke joinery conceals storage seamlessly, allowing the room to breathe." },
+      "bathroom": { "img": "img/willow/willow-bathroom.webp", "text": "Clad in large-format limestone with a brushed finish, the master bathroom evokes the quiet luxury of a private spa. A freestanding bath positioned to face the garden, double vanities in smoked oak and a walk-in shower enclosed in frameless glass define a space of considered restraint." },
+      "outdoor":  { "img": "img/willow/willow-outdoor.webp",  "text": "The outdoor living area extends the interior language into the landscape. Teak furniture, outdoor-grade linen cushions and a pergola draped in wisteria create a space that feels as considered as any room within the house — designed for long afternoons and still evenings by the water." }
+    }
+  }
+}

@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Harrington</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ================================================
+       DESIGN TOKENS
+    ================================================ */
+    :root {
+      --bg:        #F5F0E8;
+      --surface:   #EDE6DB;
+      --footer-c:  #C8B89A;
+      --text:      #1A1A1A;
+      --soft:      #6B6560;
+      --border:    #D9D0C5;
+      --white:     #FFFFFF;
+      --error:     #B85C4A;
+      --success:   #4A9A7A;
+      --font-head: 'Playfair Display', Georgia, serif;
+      --font-body: 'Urbanist', 'Helvetica Neue', sans-serif;
+    }
+
+    /* ================================================
+       BASE
+    ================================================ */
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ================================================
+       HEADER
+    ================================================ */
+    .site-header {
+      width: 100%;
+      padding: 30px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background-color: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .site-header__logo img { width: 250px; height: auto; display: block; }
+    .site-header__secure {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--soft);
+      padding: 12px 0;
+    }
+
+    /* ================================================
+       PAGE LAYOUT
+    ================================================ */
+    .page {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* ================================================
+       COVER PANEL (desktop only)
+    ================================================ */
+    .cover-panel {
+      position: sticky;
+      top: var(--header-h, 88px);
+      height: calc(100vh - var(--header-h, 88px));
+      background-color: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 10%;
+      overflow-y: auto;
+    }
+    .cover-panel__inner {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* ================================================
+       BOOK INFO
+    ================================================ */
+    .book-top { display: flex; gap: 24px; align-items: flex-start; }
+    .cover-image {
+      width: 150px;
+      flex-shrink: 0;
+      aspect-ratio: 2/3;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+    .cover-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .book-info-col { flex: 1; min-width: 0; }
+    .book-info__label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 10px;
+    }
+    .book-info__title {
+      font-family: var(--font-head);
+      font-size: 38px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .book-info__author {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--soft);
+      margin-bottom: 20px;
+    }
+    .book-info__meta { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
+    .book-info__meta-item { display: flex; gap: 12px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .book-info__meta-label {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--soft);
+      min-width: 64px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .book-info__meta-value { font-size: 14px; color: var(--text); }
+
+    /* ================================================
+       FORMAT SELECTOR
+    ================================================ */
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .format-options { display: flex; gap: 20px; }
+    .format-option {
+      flex: 1;
+      padding: 16px 14px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-body);
+      transition: all 0.2s ease;
+    }
+    .format-option:hover { border-color: #b0a898; }
+    .format-option.active { border-color: var(--text); background-color: var(--text); }
+    .format-option__name  { display: block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); margin-bottom: 3px; }
+    .format-option__price { display: block; font-family: var(--font-head); font-size: 20px; font-weight: 300; color: var(--text); }
+    .format-option__note  { display: block; font-size: 9px; letter-spacing: 0.07em; color: var(--soft); margin-top: 2px; }
+    .format-option.active .format-option__name  { color: var(--white); }
+    .format-option.active .format-option__price { color: var(--footer-c); }
+    .format-option.active .format-option__note  { color: rgba(200,184,154,0.65); }
+
+    /* ================================================
+       QUANTITY SELECTOR
+    ================================================ */
+    .qty-selector {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      width: fit-content;
+    }
+    .qty-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: var(--bg);
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+      font-family: var(--font-body);
+    }
+    .qty-btn:hover:not(:disabled) { background: var(--border); }
+    .qty-btn:disabled { color: var(--border); cursor: not-allowed; }
+    .qty-display {
+      width: 48px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+
+    /* ================================================
+       CHECKOUT PANEL
+    ================================================ */
+    .checkout-panel {
+      padding: 10%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ================================================
+       ORDER SUMMARY
+    ================================================ */
+    .order-summary { margin-top: 50px; }
+    .order-summary__row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--soft);
+      padding: 5px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    .order-summary__row--total {
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+      padding-top: 12px;
+      color: var(--text);
+      font-size: 12px;
+    }
+    .order-summary__total-price {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    /* ================================================
+       FORM SECTIONS
+    ================================================ */
+    .form-section { margin-bottom: 28px; }
+    .form-section__title {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ================================================
+       EMAIL FIELD
+    ================================================ */
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 10px;
+    }
+    .field input {
+      width: 100%;
+      height: 40px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 0 14px;
+      outline: none;
+    }
+    .field input:focus { border-color: var(--text); }
+
+    /* ================================================
+       STRIPE ELEMENTS
+    ================================================ */
+    #address-element { margin-bottom: 8px; }
+    #payment-element { margin-bottom: 8px; }
+
+    .element-loading {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .element-loading__dot {
+      width: 6px;
+      height: 6px;
+      background: var(--border);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    .element-loading__dot:nth-child(2) { animation-delay: 0.2s; margin: 0 6px; }
+    .element-loading__dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes pulse { 0%,80%,100% { opacity: 0.3; } 40% { opacity: 1; } }
+
+    /* ================================================
+       SUBMIT BUTTON
+    ================================================ */
+    .btn-submit {
+      width: 100%;
+      padding: 18px 32px;
+      background-color: var(--text);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn-submit:hover { opacity: 0.82; }
+    .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+    .spinner {
+      display: none;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .btn-label { display: none; }
+
+    /* ================================================
+       MESSAGES
+    ================================================ */
+    .error-message {
+      color: var(--error);
+      font-size: 12px;
+      margin-top: 12px;
+      display: none;
+      letter-spacing: 0.02em;
+    }
+    .secure-note {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-top: 16px;
+      justify-content: center;
+    }
+
+    /* ================================================
+       TEST CARDS POPUP
+    ================================================ */
+    .popup__trigger {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #1A1A1A;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      transition: opacity 0.3s ease;
+      color: #ffffff;
+    }
+    .popup__trigger:hover { opacity: 0.8; }
+    .popup__overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.66);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .popup__overlay.open { display: flex; }
+    .popup { background-color: var(--bg); max-width: 560px; width: 100%; padding: 48px; position: relative; }
+    .popup__close {
+      position: absolute;
+      top: 24px; right: 24px;
+      background: none; border: none; cursor: pointer;
+      color: var(--soft); padding: 4px; transition: opacity 0.3s ease;
+    }
+    .popup__close:hover { opacity: 0.5; }
+    .popup__label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--soft); margin-bottom: 16px; }
+    .popup__title { font-family: var(--font-head); font-size: 28px; font-weight: 300; font-style: italic; color: var(--text); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .popup__cards { display: flex; flex-direction: column; gap: 16px; }
+    .popup__card { display: flex; justify-content: space-between; align-items: flex-start; padding: 16px 20px; border: 1px solid var(--border); background-color: var(--surface); }
+    .popup__card-scenario { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+    .popup__card-scenario--success { color: #4A9A7A; }
+    .popup__card-scenario--decline { color: #B85C4A; }
+    .popup__card-scenario--threeds { color: #A0853A; }
+    .popup__card-number { font-family: monospace; font-size: 15px; letter-spacing: 0.1em; color: var(--text); margin-bottom: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+    .popup__card-number:hover .copy-icon { opacity: 1; }
+    .copy-icon { opacity: 0.3; transition: opacity 0.2s; flex-shrink: 0; }
+    .copy-toast { display: inline-block; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: #4A9A7A; margin-left: 4px; opacity: 0; transition: opacity 0.2s; }
+    .copy-toast.show { opacity: 1; }
+    .popup__card-desc { font-size: 12px; color: var(--soft); line-height: 1.6; }
+    .popup__card-details { text-align: right; flex-shrink: 0; margin-left: 24px; }
+    .popup__card-detail-label { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--soft); display: block; }
+    .popup__card-detail-value { font-size: 13px; color: var(--text); display: block; margin-bottom: 8px; }
+    .popup__note { font-size: 11px; color: var(--soft); text-align: center; margin-top: 20px; letter-spacing: 0.05em; }
+
+    .hidden { display: none !important; }
+
+    /* ================================================
+       MOBILE ORDER SUMMARY BAR
+    ================================================ */
+    .sticky-bar {
+      background-color: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: var(--header-h, 73px);
+      z-index: 99;
+    }
+    .sticky-bar__rail {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 7.5%;
+      cursor: pointer;
+    }
+    .sticky-summary-btn {
+      color: var(--text);
+      border: none;
+      background: none;
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .sticky-bar__price { font-size: 16px; color: var(--text); font-family: var(--font-body); }
+    .sticky-summary-btn__chevron { transition: transform 0.3s ease; }
+    .sticky-summary-btn.is-open .sticky-summary-btn__chevron { transform: rotate(180deg); }
+    .sticky-bar__rail button:focus,
+    .sticky-bar__rail button:active { color: var(--text); outline: none; }
+
+    .sticky-summary-panel {
+      background-color: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.38s cubic-bezier(.22,.68,0,1), opacity 0.25s ease;
+    }
+    .sticky-summary-panel.is-open { max-height: fit-content; opacity: 1; }
+    .sticky-summary-panel__inner {
+      padding: 7.5%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      background: var(--surface);
+    }
+    .sticky-book-top {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      padding-bottom: 50px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sticky-cover-img { width: 150px; flex-shrink: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .sticky-summary-panel__inner .section-label { text-align: left; margin-bottom: 10px; }
+    .sticky-summary-panel__inner .order-summary { margin-top: 20px; }
+
+    /* ================================================
+       RESPONSIVE — tablet / mobile ≤ 1200px
+    ================================================ */
+    @media (max-width: 1200px) {
+      .cover-panel { display: none; }
+      .page { grid-template-columns: 1fr; }
+      .site-header { padding: 30px 7.5%; }
+      .site-header__logo img { width: 200px; }
+      .sticky-bar {
+        display: block !important;
+        position: relative !important;
+        transform: none !important;
+        top: 0 !important;
+        z-index: 1 !important;
+      }
+      .checkout-panel { padding: 7.5%; }
+    }
+
+    /* ================================================
+       RESPONSIVE — small tablet ≤ 768px
+    ================================================ */
+    @media (max-width: 768px) {
+      .site-header__secure span { display: none; }
+      .format-options { flex-direction: column; }
+    }
+
+    /* ================================================
+       RESPONSIVE — mobile ≤ 480px
+    ================================================ */
+    @media (max-width: 480px) {
+      .sticky-bar__rail { padding: 14px 7.5%; }
+      .sticky-cover-img {
+        width: 75%;
+        margin: auto;
+      }
+      .sticky-book-top {
+        flex-direction: column;
+        padding-bottom: 30px;
+        
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="index.html" class="site-header__logo">
+      <img src="img/logo-black.svg" alt="Harrington">
+    </a>
+    <div class="site-header__secure">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span>Secure checkout · Powered by Stripe</span>
+    </div>
+  </header>
+
+  <!-- Mobile order summary bar (hidden on desktop) -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="sticky-bar__rail">
+      <button class="sticky-summary-btn" id="stickySummaryBtn" type="button">
+        Order summary
+        <svg class="sticky-summary-btn__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <span class="sticky-bar__price" id="stickyPrice">$85.00</span>
+    </div>
+
+    <div class="sticky-summary-panel" id="stickySummaryPanel">
+      <div class="sticky-summary-panel__inner">
+
+        <!-- Book info -->
+        <div class="sticky-book-top">
+          <img src="img/book-cover.webp" alt="The Quiet Room" class="sticky-cover-img">
+          <div>
+            <p style="font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--soft);margin-bottom:6px;">Harrington Press · 2026</p>
+            <p style="font-family:var(--font-head);font-size:24px;font-weight:300;font-style:italic;line-height:1.2;margin-bottom:4px;">The Quiet Room</p>
+            <p style="font-size:12px;letter-spacing:0.08em;color:var(--soft);">Eleanor Voss</p>
+          </div>
+        </div>
+
+        <!-- Format selector -->
+        <div>
+          <p class="section-label">Select format</p>
+          <div class="format-options">
+            <button class="format-option active" data-format="hardcover" type="button">
+              <span class="format-option__name">Hardcover</span>
+              <span class="format-option__price">$85</span>
+              <span class="format-option__note">Ships in 3–5 days</span>
+            </button>
+            <button class="format-option" data-format="ebook" type="button">
+              <span class="format-option__name">Ebook</span>
+              <span class="format-option__price">$28</span>
+              <span class="format-option__note">Instant download</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quantity -->
+        <div id="stickyQuantitySection">
+          <p class="section-label">Quantity</p>
+          <div class="qty-selector">
+            <button class="qty-btn" id="qtyMinus" onclick="changeQty(-1)" disabled type="button">−</button>
+            <span class="qty-display" id="qtyDisplay">1</span>
+            <button class="qty-btn" id="qtyPlus" onclick="changeQty(1)" type="button">+</button>
+          </div>
+          <p style="font-size:10px;letter-spacing:0.15em;color:var(--soft);margin-top:10px;text-transform:uppercase;">Max 2 copies per customer</p>
+        </div>
+
+        <!-- Price breakdown -->
+        <div class="order-summary" style="margin-bottom:0;">
+          <div class="order-summary__row">
+            <span id="summaryFormat">The Quiet Room — Hardcover</span>
+            <span id="summaryPrice">$85.00</span>
+          </div>
+          <div class="order-summary__row" id="summaryShippingRow">
+            <span id="summaryShippingLabel">Shipping</span>
+            <span id="summaryShippingPrice">—</span>
+          </div>
+          <div class="order-summary__row order-summary__row--total">
+            <span>Total</span>
+            <span class="order-summary__total-price" id="summaryTotal">$85.00</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Two-column page layout -->
+  <div class="page">
+
+    <!-- Left: book info panel (desktop only) -->
+    <div class="cover-panel">
+      <div class="cover-panel__inner">
+        <div class="book-top">
+          <div class="cover-image">
+            <img src="img/book-cover.webp" alt="The Quiet Room">
+          </div>
+          <div class="book-info-col">
+            <p class="book-info__label">Harrington Press · 2026</p>
+            <h2 class="book-info__title">The Quiet Room</h2>
+            <p class="book-info__author">Eleanor Voss</p>
+            <div class="book-info__meta">
+              <div class="book-info__meta-item">
+                <span class="book-info__meta-label">Publisher</span>
+                <span class="book-info__meta-value">Harrington Press</span>
+              </div>
+              <div class="book-info__meta-item">
+                <span class="book-info__meta-label">Pages</span>
+                <span class="book-info__meta-value">312</span>
+              </div>
+              <div class="book-info__meta-item">
+                <span class="book-info__meta-label">Language</span>
+                <span class="book-info__meta-value">English</span>
+              </div>
+              <div class="book-info__meta-item">
+                <span class="book-info__meta-label">ISBN</span>
+                <span class="book-info__meta-value">978-1-9876-5432-1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Format selector -->
+        <div>
+          <p class="section-label">Select format</p>
+          <div class="format-options">
+            <button class="format-option active" data-format="hardcover" type="button">
+              <span class="format-option__name">Hardcover</span>
+              <span class="format-option__price">$85</span>
+              <span class="format-option__note">Ships in 3–5 days</span>
+            </button>
+            <button class="format-option" data-format="ebook" type="button">
+              <span class="format-option__name">Ebook</span>
+              <span class="format-option__price">$28</span>
+              <span class="format-option__note">Instant download</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quantity -->
+        <div id="quantitySection">
+          <p class="section-label">Quantity</p>
+          <div class="qty-selector">
+            <button class="qty-btn" id="qtyMinusDesktop" onclick="changeQty(-1)" disabled type="button">−</button>
+            <span class="qty-display" id="qtyDisplayDesktop">1</span>
+            <button class="qty-btn" id="qtyPlusDesktop" onclick="changeQty(1)" type="button">+</button>
+          </div>
+          <p style="font-size:10px;letter-spacing:0.15em;color:var(--soft);margin-top:10px;text-transform:uppercase;">Max 2 copies per customer</p>
+        </div>
+
+        <!-- Price breakdown -->
+        <div class="order-summary">
+          <div class="order-summary__row">
+            <span id="summaryFormatDesktop">The Quiet Room — Hardcover</span>
+            <span id="summaryPriceDesktop">$85.00</span>
+          </div>
+          <div class="order-summary__row" id="summaryShippingRowDesktop">
+            <span id="summaryShippingLabelDesktop">Shipping</span>
+            <span id="summaryShippingPriceDesktop">—</span>
+          </div>
+          <div class="order-summary__row order-summary__row--total">
+            <span>Total</span>
+            <span class="order-summary__total-price" id="summaryTotalDesktop">$85.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: checkout form -->
+    <div class="checkout-panel">
+
+      <!-- Contact -->
+      <div class="form-section">
+        <h2 class="form-section__title">Contact</h2>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="email" placeholder="you@example.com">
+        </div>
+      </div>
+
+      <!-- Shipping address (hidden for ebook) -->
+      <div class="form-section" id="shippingSection">
+        <h2 class="form-section__title">Shipping address</h2>
+        <div id="address-element">
+          <div class="element-loading">
+            <span class="element-loading__dot"></span>
+            <span class="element-loading__dot"></span>
+            <span class="element-loading__dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Billing address (hidden by default) -->
+      <div class="form-section" id="billingSection" style="display:none;">
+        <h2 class="form-section__title">Billing address</h2>
+        <div id="billing-address-element">
+          <div class="element-loading">
+            <span class="element-loading__dot"></span>
+            <span class="element-loading__dot"></span>
+            <span class="element-loading__dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="form-section">
+        <h2 class="form-section__title">Payment</h2>
+        <div id="payment-element">
+          <div class="element-loading">
+            <span class="element-loading__dot"></span>
+            <span class="element-loading__dot"></span>
+            <span class="element-loading__dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-submit" id="submitBtn" onclick="handleSubmit()" type="button" disabled>
+        <span class="btn-label">Complete purchase</span>
+        <div class="spinner"></div>
+      </button>
+
+      <p class="error-message" id="errorMessage"></p>
+
+      <p class="secure-note">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Payments secured by Stripe
+      </p>
+    </div>
+  </div>
+
+  <!-- Test cards trigger button -->
+  <button class="popup__trigger" onclick="openCardsPopup()" title="Test cards" type="button">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+      <line x1="1" y1="10" x2="23" y2="10"/>
+    </svg>
+  </button>
+
+  <!-- Test cards popup -->
+  <div class="popup__overlay" id="cardsPopupOverlay">
+    <div class="popup">
+      <button class="popup__close" onclick="closeCardsPopup()" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <p class="popup__label">Test mode</p>
+      <h2 class="popup__title">Stripe test cards</h2>
+      <div class="popup__cards">
+
+        <div class="popup__card">
+          <div>
+            <p class="popup__card-scenario popup__card-scenario--success">✓ &nbsp;Payment succeeds</p>
+            <p class="popup__card-number" onclick="copyCard(this, '4242424242424242')">
+              4242 4242 4242 4242
+              <svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-toast">Copied</span>
+            </p>
+            <p class="popup__card-desc">Completes immediately, no authentication required.</p>
+          </div>
+          <div class="popup__card-details">
+            <span class="popup__card-detail-label">Expiry</span>
+            <span class="popup__card-detail-value">Any future</span>
+            <span class="popup__card-detail-label">CVV</span>
+            <span class="popup__card-detail-value">Any 3 digits</span>
+          </div>
+        </div>
+
+        <div class="popup__card">
+          <div>
+            <p class="popup__card-scenario popup__card-scenario--threeds">⬡ &nbsp;3D Secure required</p>
+            <p class="popup__card-number" onclick="copyCard(this, '4000002500003155')">
+              4000 0025 0000 3155
+              <svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-toast">Copied</span>
+            </p>
+            <p class="popup__card-desc">Opens 3DS window, click Complete to approve.</p>
+          </div>
+          <div class="popup__card-details">
+            <span class="popup__card-detail-label">Expiry</span>
+            <span class="popup__card-detail-value">Any future</span>
+            <span class="popup__card-detail-label">CVV</span>
+            <span class="popup__card-detail-value">Any 3 digits</span>
+          </div>
+        </div>
+
+        <div class="popup__card">
+          <div>
+            <p class="popup__card-scenario popup__card-scenario--decline">✕ &nbsp;Card declined</p>
+            <p class="popup__card-number" onclick="copyCard(this, '4000000000009995')">
+              4000 0000 0000 9995
+              <svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-toast">Copied</span>
+            </p>
+            <p class="popup__card-desc">Simulates a bank refusal, insufficient funds.</p>
+          </div>
+          <div class="popup__card-details">
+            <span class="popup__card-detail-label">Expiry</span>
+            <span class="popup__card-detail-value">Any future</span>
+            <span class="popup__card-detail-label">CVV</span>
+            <span class="popup__card-detail-value">Any 3 digits</span>
+          </div>
+        </div>
+
+      </div>
+      <p class="popup__note">These cards work in test mode only. No real charges will be made.</p>
+    </div>
+  </div>
+
+  <script>
+    // ================================================
+    // HEADER HEIGHT
+    // Sets --header-h CSS variable used by sticky elements
+    // ================================================
+    const _header = document.querySelector('.site-header');
+    const _setHeaderH = () =>
+      document.documentElement.style.setProperty('--header-h', _header.offsetHeight + 'px');
+    _setHeaderH();
+    new ResizeObserver(_setHeaderH).observe(_header);
+
+    // ================================================
+    // CONFIG
+    // ================================================
+    const API_URL        = 'https://harrington-api.vercel.app/api/create-checkout';
+    const UPDATE_API_URL = 'https://harrington-api.vercel.app/api/update-checkout';
+    const STRIPE_PK      = 'pk_test_51TGLk4EO6dNP9FJV33zJLRM8gvyck7bWFs8JtO0cjzoqo29oslc1OrWKzyRujo7N7SK3WX00mpcG0xjaG1pLHEAM00YN3UHs5o';
+    const stripe = Stripe(STRIPE_PK);
+
+    // ================================================
+    // SHIPPING RATES
+    // ================================================
+    const SHIPPING = {
+      domestic:      { label: 'Domestic (USA)',             amount: 15 },
+      north_america: { label: 'International — N. America', amount: 25 },
+      international: { label: 'International',              amount: 30 },
+    };
+    const DOMESTIC_COUNTRIES      = ['US'];
+    const NORTH_AMERICA_COUNTRIES = ['CA', 'MX'];
+    const prices = { hardcover: 85, ebook: 28 };
+
+    // ================================================
+    // STATE
+    // ================================================
+    let currentFormat   = 'hardcover';
+    let currentShipping = null;
+    let selectedCountry = null;
+    let countrySelected = false;
+    let currentQty      = 1;
+    let elements        = null;
+    let clientSecret    = null;
+    let paymentEl       = null;
+    let addressEl       = null;
+
+    // ================================================
+    // STRIPE APPEARANCE
+    // ================================================
+    const appearance = {
+      theme: 'flat',
+      variables: {
+        colorPrimary:         '#1A1A1A',
+        colorBackground:      '#FFFFFF',
+        colorText:            '#1A1A1A',
+        colorTextSecondary:   '#6B6560',
+        colorTextPlaceholder: '#C0B8B0',
+        colorDanger:          '#B85C4A',
+        fontFamily:           '"Urbanist", "Helvetica Neue", sans-serif',
+        fontSizeBase:         '14px',
+        borderRadius:         '0px',
+        spacingUnit:          '4px',
+      },
+      rules: {
+        '.Input':               { border: '1px solid #D9D0C5', padding: '11px 13px', backgroundColor: '#FFFFFF', boxShadow: 'none' },
+        '.Input:focus':         { border: '1px solid #1A1A1A', boxShadow: 'none', outline: 'none' },
+        '.Label':               { fontSize: '12px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6B6560', marginBottom: '10px' },
+        '.Tab':                 { border: '1px solid #D9D0C5', backgroundColor: '#F5F0E8', boxShadow: 'none' },
+        '.Tab--selected':       { border: '1px solid #1A1A1A', backgroundColor: '#1A1A1A', color: '#FFFFFF' },
+        '.Tab--selected:hover': { backgroundColor: '#1A1A1A', color: '#FFFFFF' },
+        '.TabLabel--selected':  { color: '#FFFFFF' },
+        '.TabIcon--selected':   { fill: '#FFFFFF' },
+        '.Tab:focus':           { boxShadow: 'none' }
+      }
+    };
+
+    // ================================================
+    // HELPERS
+    // ================================================
+    function showError(message) {
+      const el = document.getElementById('errorMessage');
+      el.textContent = message;
+      el.style.display = 'block';
+    }
+
+    function clearError() {
+      const el = document.getElementById('errorMessage');
+      el.textContent = '';
+      el.style.display = 'none';
+    }
+
+    function paymentIntentIdFromClientSecret(secret) {
+      return secret ? secret.split('_secret')[0] : null;
+    }
+
+    function loadingHTML() {
+      return `<div class="element-loading">
+        <span class="element-loading__dot"></span>
+        <span class="element-loading__dot"></span>
+        <span class="element-loading__dot"></span>
+      </div>`;
+    }
+
+    // ================================================
+    // QUANTITY BUTTONS
+    // Updates both mobile and desktop qty controls
+    // ================================================
+    function updateQtyButtons() {
+      const ids = [
+        ['qtyMinus', 'qtyPlus', 'qtyDisplay'],
+        ['qtyMinusDesktop', 'qtyPlusDesktop', 'qtyDisplayDesktop']
+      ];
+      ids.forEach(([minusId, plusId, dispId]) => {
+        const minus = document.getElementById(minusId);
+        const plus  = document.getElementById(plusId);
+        const disp  = document.getElementById(dispId);
+        if (minus) minus.disabled = currentQty <= 1;
+        if (plus)  plus.disabled  = currentQty >= 2;
+        if (disp)  disp.textContent = currentQty;
+      });
+    }
+
+    // ================================================
+    // SHIPPING CALCULATION
+    // Assigns shipping zone from country code
+    // ================================================
+    function applyShippingFromCountry(countryCode) {
+      if (!countryCode) { currentShipping = null; return; }
+      const cc = countryCode.toUpperCase();
+      if (DOMESTIC_COUNTRIES.includes(cc))           currentShipping = 'domestic';
+      else if (NORTH_AMERICA_COUNTRIES.includes(cc)) currentShipping = 'north_america';
+      else                                            currentShipping = 'international';
+    }
+
+    // ================================================
+    // ORDER SUMMARY UPDATE
+    // Syncs both mobile and desktop summary panels
+    // ================================================
+    function updateSummary(countryCode = selectedCountry) {
+      const isEbook  = currentFormat === 'ebook';
+      const qty      = isEbook ? 1 : currentQty;
+      const base     = prices[currentFormat] * qty;
+      const qtyLabel = (!isEbook && qty > 1) ? ` × ${qty}` : '';
+
+      if (countryCode) applyShippingFromCountry(countryCode);
+      else currentShipping = null;
+
+      const ship  = (!isEbook && countrySelected && currentShipping) ? SHIPPING[currentShipping].amount : 0;
+      const total = base + ship;
+
+      const setEl    = (id, val)       => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      const setStyle = (id, prop, val) => { const el = document.getElementById(id); if (el) el.style[prop] = val; };
+
+      const formatLabel   = 'The Quiet Room — ' + (isEbook ? 'Ebook' : 'Hardcover') + qtyLabel;
+      const priceLabel    = '$' + base + '.00';
+      const shippingLabel = (countrySelected && currentShipping) ? SHIPPING[currentShipping].label : 'Shipping';
+      const shippingPrice = (!isEbook && countrySelected && currentShipping) ? '$' + ship + '.00' : '—';
+      const totalLabel    = (!isEbook && countrySelected && currentShipping) ? '$' + total + '.00' : '$' + base + '.00';
+
+      setEl('summaryFormat', formatLabel);
+      setEl('summaryPrice', priceLabel);
+      setStyle('summaryShippingRow', 'display', isEbook ? 'none' : 'flex');
+      setEl('summaryShippingLabel', shippingLabel);
+      setEl('summaryShippingPrice', shippingPrice);
+      setEl('summaryTotal', totalLabel);
+
+      setEl('summaryFormatDesktop', formatLabel);
+      setEl('summaryPriceDesktop', priceLabel);
+      setStyle('summaryShippingRowDesktop', 'display', isEbook ? 'none' : 'flex');
+      setEl('summaryShippingLabelDesktop', shippingLabel);
+      setEl('summaryShippingPriceDesktop', shippingPrice);
+      setEl('summaryTotalDesktop', totalLabel);
+
+      setEl('stickyPrice', totalLabel);
+    }
+
+    // ================================================
+    // SYNC PAYMENT INTENT
+    // Updates amount on backend when shipping changes
+    // ================================================
+    async function syncIntentAmount() {
+      if (!clientSecret || currentFormat === 'ebook' || !selectedCountry) return;
+      const response = await fetch(UPDATE_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          country:         selectedCountry,
+          quantity:        currentQty,
+          format:          currentFormat,
+          paymentIntentId: paymentIntentIdFromClientSecret(clientSecret)
+        })
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || 'Unable to update checkout');
+      await elements.fetchUpdates();
+    }
+
+    // ================================================
+    // QUANTITY CHANGE
+    // ================================================
+    async function changeQty(delta) {
+      const next = currentQty + delta;
+      if (next < 1 || next > 2) return;
+      currentQty = next;
+      updateQtyButtons();
+      updateSummary();
+      try { await syncIntentAmount(); } catch (err) { showError(err.message); }
+    }
+
+    // ================================================
+    // INIT STRIPE ELEMENTS
+    // Creates address and payment elements
+    // ================================================
+    async function initElements() {
+      try {
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            format:   currentFormat,
+            quantity: currentFormat === 'hardcover' ? currentQty : 1
+          })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.clientSecret) throw new Error(data.error || 'Backend error');
+
+        clientSecret = data.clientSecret;
+        elements = stripe.elements({
+          clientSecret,
+          appearance,
+          locale: 'en',
+          fonts: [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500&display=swap' }]
+        });
+
+        // Shipping address (hardcover only)
+        const isEbook = currentFormat === 'ebook';
+        if (!isEbook) {
+          addressEl = elements.create('address', { mode: 'shipping' });
+          addressEl.mount('#address-element');
+
+          addressEl.on('change', (event) => {
+            if (event.value?.address?.country) {
+              selectedCountry = event.value.address.country;
+              countrySelected = true;
+              updateSummary(selectedCountry);
+              syncIntentAmount().catch(() => {});
+            }
+          });
+        }
+
+        // Payment element
+        paymentEl = elements.create('payment');
+        paymentEl.mount('#payment-element');
+
+        // Enable submit once payment element is ready
+        document.getElementById('submitBtn').disabled = true;
+        paymentEl.on('ready', () => {
+          document.getElementById('submitBtn').disabled = false;
+        });
+
+        updateSummary();
+      } catch (err) {
+        showError(err.message);
+      }
+    }
+
+    // ================================================
+    // FORMAT SELECTOR
+    // Resets state and reinitialises Stripe on change
+    // ================================================
+    document.querySelectorAll('.format-option').forEach((btn) => {
+      btn.addEventListener('click', async function () {
+        const fmt = this.dataset.format;
+        document.querySelectorAll('.format-option').forEach(b => {
+          b.classList.toggle('active', b.dataset.format === fmt);
+        });
+
+        currentFormat   = fmt;
+        currentQty      = 1;
+        currentShipping = null;
+        selectedCountry = null;
+        countrySelected = false;
+
+        updateQtyButtons();
+        updateSummary();
+
+        const isEbook    = currentFormat === 'ebook';
+        const qtyMobile  = document.getElementById('stickyQuantitySection');
+        const qtyDesktop = document.getElementById('quantitySection');
+        const shippingSec = document.getElementById('shippingSection');
+        if (qtyMobile)   qtyMobile.style.display   = isEbook ? 'none' : '';
+        if (qtyDesktop)  qtyDesktop.style.display   = isEbook ? 'none' : '';
+        if (shippingSec) shippingSec.style.display  = isEbook ? 'none' : '';
+
+        clearError();
+        document.getElementById('address-element').innerHTML = loadingHTML();
+        document.getElementById('payment-element').innerHTML = loadingHTML();
+        elements = null; clientSecret = null; paymentEl = null; addressEl = null;
+        await initElements();
+      });
+    });
+
+    // ================================================
+    // FORM SUBMISSION
+    // Validates, confirms payment, redirects on success
+    // ================================================
+    async function handleSubmit() {
+      clearError();
+      if (!elements || !paymentEl) { showError('Payment form not ready. Please wait.'); return; }
+
+      const btn = document.getElementById('submitBtn');
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      try {
+        const email = document.getElementById('email').value.trim();
+        if (!email) throw new Error('Enter your email address.');
+
+        const isEbook = currentFormat === 'ebook';
+
+        // Validate shipping address for hardcover orders
+        let shippingAddress = null;
+        if (!isEbook) {
+          if (!addressEl) throw new Error('Shipping address form not ready.');
+          const { complete, value } = await addressEl.getValue();
+          if (!complete) throw new Error('Please complete the shipping address.');
+          shippingAddress = value;
+          selectedCountry = value.address?.country || null;
+          countrySelected = Boolean(selectedCountry);
+          await syncIntentAmount();
+        }
+
+        const { error: payErr } = await elements.submit();
+        if (payErr) throw new Error(payErr.message);
+
+        const confirmParams = {
+          return_url: window.location.origin + '/success.html'
+        };
+
+        if (!isEbook && shippingAddress) {
+          confirmParams.shipping = {
+            name:    shippingAddress.name,
+            phone:   shippingAddress.phone || undefined,
+            address: {
+              line1:       shippingAddress.address.line1,
+              line2:       shippingAddress.address.line2 || undefined,
+              city:        shippingAddress.address.city,
+              state:       shippingAddress.address.state || undefined,
+              postal_code: shippingAddress.address.postal_code,
+              country:     shippingAddress.address.country
+            }
+          };
+        }
+
+        const { error } = await stripe.confirmPayment({ elements, confirmParams, redirect: 'if_required' });
+        if (error) throw new Error(error.message);
+
+        // Store order data for confirmation page
+        const qty      = isEbook ? 1 : currentQty;
+        const shipAmt  = (!isEbook && countrySelected && currentShipping) ? SHIPPING[currentShipping].amount : 0;
+        const totalAmt = prices[currentFormat] * qty + shipAmt;
+
+        sessionStorage.setItem('harrington_order', JSON.stringify({
+          format:   isEbook ? 'Ebook' : 'Hardcover',
+          quantity: qty,
+          total:    '$' + totalAmt + '.00',
+          email,
+          name:     !isEbook ? (shippingAddress?.name || email) : email,
+          shipping: !isEbook ? shippingAddress : null,
+          orderId:  paymentIntentIdFromClientSecret(clientSecret)
+        }));
+
+        window.location.href = 'success.html';
+      } catch (err) {
+        showError(err.message);
+        btn.classList.remove('loading');
+        btn.disabled = false;
+      }
+    }
+
+    // ================================================
+    // TEST CARDS POPUP
+    // ================================================
+    function openCardsPopup() {
+      document.getElementById('cardsPopupOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCardsPopup() {
+      document.getElementById('cardsPopupOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('cardsPopupOverlay').addEventListener('click', function (e) {
+      if (e.target === this) closeCardsPopup();
+    });
+
+    function copyCard(el, number) {
+      navigator.clipboard.writeText(number).then(() => {
+        const toast = el.querySelector('.copy-toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1800);
+      });
+    }
+
+    // ================================================
+    // MOBILE SUMMARY PANEL TOGGLE
+    // ================================================
+    const stickyBtn   = document.getElementById('stickySummaryBtn');
+    const stickyPanel = document.getElementById('stickySummaryPanel');
+
+    document.querySelector('.sticky-bar__rail').addEventListener('click', () => {
+      const isOpen = stickyPanel.classList.toggle('is-open');
+      stickyBtn.classList.toggle('is-open', isOpen);
+    });
+
+    // ================================================
+    // INIT
+    // ================================================
+    (async () => {
+      updateQtyButtons();
+      updateSummary();
+      await initElements();
+    })();
+  </script>
+</body>
+</html>

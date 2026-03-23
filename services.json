@@ -1,0 +1,278 @@
+{
+  "interior": {
+    "pageTitle": "Interior Design - Harrington",
+    "title": "Interior Design",
+    "heroImage": {
+      "src": "img/services/interior-card.webp",
+      "alt": "Interior Design"
+    },
+    "intro": "Harrington's Interior Design service is a fully integrated collaboration, developed from the earliest concept to the final installation. We work with close attention to architecture, proportion, materiality and daily function, creating interiors that feel resolved, enduring and deeply personal.",
+    "process": [
+      {
+        "title": "Initial Consultation",
+        "text": "We begin by understanding how you live, what the space requires and what you want it to feel like. This first conversation establishes the priorities, atmosphere and level of ambition that will shape the project moving forward."
+      },
+      {
+        "title": "Concept & Development",
+        "text": "Layouts, materials, furniture and lighting are developed into a coherent design language. Each layer is refined with care, so the project reads as a complete and highly considered whole."
+      },
+      {
+        "title": "Execution & Styling",
+        "text": "We oversee procurement, coordination and installation through to the final styling of the space. Our involvement ensures that the completed interior reflects the original vision with precision and consistency."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "img/services/interior-gallery-01.webp",
+        "alt": "Interior Design — Living Space"
+      },
+      {
+        "src": "img/services/interior-gallery-02.webp",
+        "alt": "Interior Design — Bedroom"
+      }
+    ],
+    "deliverables": [
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\"/><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/></svg>",
+        "title": "Concept Development",
+        "text": "A defined design direction tailored to the architecture, lifestyle and character of the home."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21.3 8.7 8.7 21.3c-1 1-2.5 1-3.4 0l-2.6-2.6c-1-1-1-2.5 0-3.4L15.3 2.7c1-1 2.5-1 3.4 0l2.6 2.6c1 1 1 2.5 0 3.4Z\"/><path d=\"m7.5 10.5 2 2\"/><path d=\"m10.5 7.5 2 2\"/><path d=\"m13.5 4.5 2 2\"/><path d=\"m4.5 13.5 2 2\"/></svg>",
+        "title": "Spatial Planning",
+        "text": "Layouts are resolved with attention to flow, balance and the practical rhythm of daily living."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"12 2 2 7 12 12 22 7 12 2\"/><polyline points=\"2 17 12 22 22 17\"/><polyline points=\"2 12 12 17 22 12\"/></svg>",
+        "title": "Material Selection",
+        "text": "Finishes, textures and surfaces are chosen for their longevity, tactility and contribution to the overall atmosphere."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3\"/><path d=\"M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z\"/><path d=\"M5 18v2\"/><path d=\"M19 18v2\"/></svg>",
+        "title": "Custom Furniture",
+        "text": "Bespoke and sourced pieces are selected to support the design language and complete each room with intention."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m14 5-3 3 2 7 8-8-7-2Z\"/><path d=\"m14 5-3 3-3-3 3-3 3 3Z\"/><path d=\"M9.5 6.5 4 12l3 6\"/><path d=\"M3 22v-2c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v2H3Z\"/></svg>",
+        "title": "Lighting Design",
+        "text": "Light is considered as a central design element, shaping atmosphere from morning through evening."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z\"/><path d=\"m14 7 3 3\"/><path d=\"M5 6v4\"/><path d=\"M19 14v4\"/><path d=\"M10 2v2\"/><path d=\"M7 8H3\"/><path d=\"M21 16h-4\"/><path d=\"M11 3H9\"/></svg>",
+        "title": "Styling & Installation",
+        "text": "Final installation and styling ensure the completed interior feels resolved, layered and fully aligned with the design intent."
+      }
+    ],
+    "faq": [
+      {
+        "question": "What is included in your Interior Design service?",
+        "answer": "Our Interior Design service is comprehensive. It includes spatial planning, material and finish selection, custom furniture design, lighting strategy, procurement coordination and final styling, allowing the project to be carried through as a cohesive whole."
+      },
+      {
+        "question": "How do I know which service is right for me?",
+        "answer": "The most appropriate service depends on the scale of the project and the level of involvement you require. Interior Design is best suited to full renovations, new builds or comprehensive residential transformations. We are happy to discuss your project and advise on the right approach during an initial consultation."
+      },
+      {
+        "question": "How much does a project typically cost?",
+        "answer": "Each project is unique. Fees are determined by scope, complexity and duration, and are outlined clearly in a written proposal before work begins. We are happy to discuss anticipated investment during the initial conversation."
+      },
+      {
+        "question": "How long does a typical project take?",
+        "answer": "A full interior design project typically spans several months, depending on the scale of the work, the complexity of the brief and the lead times of bespoke elements. A detailed timeline is provided as part of the project proposal."
+      },
+      {
+        "question": "Do you work with clients outside of your local area?",
+        "answer": "Yes. Harrington works with private residential clients both nationally and internationally, managing projects remotely where appropriate and travelling to site at key stages when required."
+      }
+    ],
+    "formName": "interior-design",
+    "formService": "Interior Design",
+    "card": "img/services/service-interior.webp",
+    "tagline": "A complete approach to residential interiors.",
+    "text": "From initial concept through to final installation, each project is developed with precision and intent. Spatial planning, material selection and bespoke detailing are carefully considered to create interiors that are cohesive, refined and built to endure."
+  },
+  "styling": {
+    "pageTitle": "Styling & Curation - Harrington",
+    "title": "Styling & Curation",
+    "heroImage": {
+      "src": "img/services/styling-card.webp",
+      "alt": "Styling & Curation"
+    },
+    "intro": "Styling & Curation is the final layer that gives a space clarity, character and a sense of completion. For clients whose architecture and layout are already in place, this service refines the interior through furniture, textiles, objects and art selected with a disciplined and highly considered eye.",
+    "process": [
+      {
+        "title": "Initial Consultation",
+        "text": "We begin by reviewing the space and understanding what is already established, what feels unresolved and what atmosphere you want the home to hold. This conversation informs every subsequent decision."
+      },
+      {
+        "title": "Curation & Sourcing",
+        "text": "We develop a curated selection of furniture, textiles, objects and art drawn from trusted makers, galleries and suppliers. Each piece is considered in relation to the whole, so the interior feels composed rather than simply decorated."
+      },
+      {
+        "title": "Installation & Styling",
+        "text": "We oversee delivery, placement and final styling in person. The result is an interior that feels layered, balanced and naturally complete, with each element contributing quietly to the overall atmosphere."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "img/services/styling-gallery-01.webp",
+        "alt": "Styling & Curation — Detail"
+      },
+      {
+        "src": "img/services/styling-gallery-02.webp",
+        "alt": "Styling & Curation — Room"
+      }
+    ],
+    "deliverables": [
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\"/><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/></svg>",
+        "title": "Concept Development",
+        "text": "A clear aesthetic direction that brings cohesion, balance and greater definition to the space."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"13.5\" cy=\"6.5\" r=\".5\" fill=\"currentColor\"/><circle cx=\"17.5\" cy=\"10.5\" r=\".5\" fill=\"currentColor\"/><circle cx=\"8.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\"/><circle cx=\"6.5\" cy=\"12.5\" r=\".5\" fill=\"currentColor\"/><path d=\"M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z\"/></svg>",
+        "title": "Colour & Texture Direction",
+        "text": "A considered palette of tones, finishes and materials that strengthens the atmosphere of the interior."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"12 2 2 7 12 12 22 7 12 2\"/><polyline points=\"2 17 12 22 22 17\"/><polyline points=\"2 12 12 17 22 12\"/></svg>",
+        "title": "Material Selection",
+        "text": "Finishes and surfaces are chosen to complement the architecture and support a more resolved visual language."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z\"/><line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"/><path d=\"M16 10a4 4 0 0 1-8 0\"/></svg>",
+        "title": "Object Sourcing",
+        "text": "Decorative objects, textiles and art are sourced with care to introduce depth, warmth and individuality."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3\"/><path d=\"M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z\"/><path d=\"M5 18v2\"/><path d=\"M19 18v2\"/></svg>",
+        "title": "Custom Furniture",
+        "text": "Bespoke and sourced furnishings are selected to strengthen the composition and complete the space with intention."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z\"/><path d=\"m14 7 3 3\"/><path d=\"M5 6v4\"/><path d=\"M19 14v4\"/><path d=\"M10 2v2\"/><path d=\"M7 8H3\"/><path d=\"M21 16h-4\"/><path d=\"M11 3H9\"/></svg>",
+        "title": "Styling & Installation",
+        "text": "Final placement and styling bring the space into focus, ensuring it feels complete, lived-in and quietly elevated."
+      }
+    ],
+    "faq": [
+      {
+        "question": "What is included in your Styling & Curation service?",
+        "answer": "Styling & Curation focuses on the final refinement of a space. It typically includes furniture selection, textile direction, art and object sourcing, colour and material refinement, and on-site styling to ensure the interior feels complete and cohesive."
+      },
+      {
+        "question": "How do I know which service is right for me?",
+        "answer": "Styling & Curation is ideal for clients whose architecture and core layout are already in place, but who want the interior to feel more resolved and considered. During an initial consultation, we can advise whether this service or a more comprehensive design approach is the right fit."
+      },
+      {
+        "question": "How much does a project typically cost?",
+        "answer": "Investment depends on the size of the space, the level of sourcing required and the overall scope of the work. Following our initial conversation, we provide a clear proposal tailored to the project."
+      },
+      {
+        "question": "How long does a typical project take?",
+        "answer": "Timelines vary according to the scale of the project and the lead times of selected pieces. Styling projects are often more concise than full interior design commissions, though the exact duration depends on the brief and sourcing requirements."
+      },
+      {
+        "question": "Do you work with clients outside of your local area?",
+        "answer": "Yes. Harrington works with clients nationally and internationally, combining remote coordination with on-site visits when required to complete the project to the appropriate standard."
+      }
+    ],
+    "formName": "styling-curation",
+    "formService": "Styling & Curation",
+    "card": "img/services/service-styling.webp",
+    "tagline": "Composed spaces, defined by detail.",
+    "text": "Furniture, textiles, art and objects are curated with a disciplined eye. Each element is selected to enrich the atmosphere of a space, introducing depth, balance and a sense of quiet sophistication without excess."
+  },
+  "direction": {
+    "pageTitle": "Project Direction - Harrington",
+    "title": "Project Direction",
+    "heroImage": {
+      "src": "img/services/direction-card.webp",
+      "alt": "Project Direction"
+    },
+    "intro": "Project Direction is designed for clients who wish to retain oversight of their renovation or build while benefiting from a clear and considered creative framework. We define the vision, structure key decisions and guide the process with precision, allowing the project to move forward with clarity, consistency and confidence.",
+    "process": [
+      {
+        "title": "Initial Consultation",
+        "text": "We begin with a detailed review of the project, including scope, priorities, timeline and constraints. This conversation allows us to identify where direction will be most valuable and to establish a framework that is both practical and design-led."
+      },
+      {
+        "title": "Concept & Roadmap",
+        "text": "We develop a clear design concept supported by a structured roadmap. Key decisions, suppliers, phases and timelines are outlined with care, creating a reference point that helps guide the project from early planning through execution."
+      },
+      {
+        "title": "Ongoing Direction",
+        "text": "As the project evolves, we remain available for consultations, design reviews and considered recommendations. Our role is to help maintain coherence throughout, ensuring that each decision supports the overall vision."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "img/services/direction-gallery-01.webp",
+        "alt": "Project Direction — Material Samples"
+      },
+      {
+        "src": "img/services/direction-gallery-02.webp",
+        "alt": "Project Direction — Architectural Overview"
+      }
+    ],
+    "deliverables": [
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\"/><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/></svg>",
+        "title": "Concept Development",
+        "text": "A clear design direction shaped around the architecture, the way you live and the overall character of the project."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21.3 8.7 8.7 21.3c-1 1-2.5 1-3.4 0l-2.6-2.6c-1-1-1-2.5 0-3.4L15.3 2.7c1-1 2.5-1 3.4 0l2.6 2.6c1 1 1 2.5 0 3.4Z\"/><path d=\"m7.5 10.5 2 2\"/><path d=\"m10.5 7.5 2 2\"/><path d=\"m13.5 4.5 2 2\"/><path d=\"m4.5 13.5 2 2\"/></svg>",
+        "title": "Spatial Planning",
+        "text": "Layouts are reviewed and refined to support flow, proportion and a more intuitive experience of the space."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"12 2 2 7 12 12 22 7 12 2\"/><polyline points=\"2 17 12 22 22 17\"/><polyline points=\"2 12 12 17 22 12\"/></svg>",
+        "title": "Material Selection",
+        "text": "Finishes, surfaces and textures are considered with attention to longevity, atmosphere and visual coherence."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m14 5-3 3 2 7 8-8-7-2Z\"/><path d=\"m14 5-3 3-3-3 3-3 3 3Z\"/><path d=\"M9.5 6.5 4 12l3 6\"/><path d=\"M3 22v-2c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v2H3Z\"/></svg>",
+        "title": "Lighting Design",
+        "text": "Natural and artificial light are considered together to shape mood, clarity and comfort throughout the home."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"/><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"/><line x1=\"10\" y1=\"9\" x2=\"8\" y2=\"9\"/></svg>",
+        "title": "Design Roadmap",
+        "text": "A structured plan outlining phases, priorities and timing, so the project progresses with greater confidence and order."
+      },
+      {
+        "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z\"/><path d=\"M5 3v4\"/><path d=\"M19 17v4\"/><path d=\"M3 5h4\"/><path d=\"M17 19h4\"/></svg>",
+        "title": "Supplier Recommendations",
+        "text": "A curated selection of suppliers, artisans and contractors aligned with the level of quality the project requires."
+      }
+    ],
+    "faq": [
+      {
+        "question": "What is included in your Project Direction service?",
+        "answer": "Project Direction provides a clear design framework for clients managing their own renovation or build. It typically includes concept development, layout guidance, material direction, supplier recommendations and ongoing consultation at key stages of the project."
+      },
+      {
+        "question": "How do I know which service is right for me?",
+        "answer": "The right service depends on the level of support you need. Project Direction is ideal for clients who want to remain closely involved while benefiting from expert guidance. We are happy to discuss your project and recommend the most suitable approach during an initial consultation."
+      },
+      {
+        "question": "How much does a project typically cost?",
+        "answer": "Each project is different, and fees are shaped by scope, complexity and duration. After our initial conversation, we provide a clear proposal outlining the level of support required and the associated investment."
+      },
+      {
+        "question": "How long does a typical project take?",
+        "answer": "Timelines vary depending on the size of the project and the pace of decision-making. Project Direction can support shorter renovation phases or longer, more complex builds, with involvement tailored to the needs of the process."
+      },
+      {
+        "question": "Do you work with clients outside of your local area?",
+        "answer": "Yes. Harrington works with clients nationally and internationally, providing direction remotely where appropriate and travelling when the project requires on-site input."
+      }
+    ],
+    "formName": "project-direction",
+    "formService": "Project Direction",
+    "card": "img/services/service-direction.webp",
+    "tagline": "Consistency at every stage of the project.",
+    "text": "A structured and continuous oversight from design development through completion. Working closely with clients, consultants and craftsmen, the studio ensures clarity, cohesion and a consistently high level of execution."
+  }
+}

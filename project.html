@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harrington</title>
+  <script>
+    // Set title immediately from URL to avoid flash of generic title
+    (function() {
+      const id = new URLSearchParams(window.location.search).get('id');
+      if (id) document.title = id.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) + ' — Harrington';
+    })();
+  </script>
+  <!-- favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR COMPONENT -->
+  <div id="navbar"></div>
+
+  <div id="popup"></div>
+
+  <main>
+
+    <!-- HERO: populated by JS -->
+    <section class="project-hero">
+      <img id="heroImg" src="" alt="">
+      <div class="project-hero__content">
+        <div class="container">
+          <h1 class="project-hero__title" id="heroTitle"></h1>
+          <p class="project-hero__location" id="heroLocation"></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="room-nav" id="roomNav">
+      <button class="room-nav__current" id="roomNavToggle">
+        <span class="room-nav__num" id="roomNavNum">01</span>
+        <span class="room-nav__name" id="roomNavName">Living Room</span>
+        <svg class="room-nav__arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="room-nav__dropdown" id="roomNavDropdown">
+        <a href="#living"   class="room-nav__option" data-num="01" data-name="Living Room">01 — Living Room</a>
+        <a href="#kitchen"  class="room-nav__option" data-num="02" data-name="Kitchen">02 — Kitchen</a>
+        <a href="#dining"   class="room-nav__option" data-num="03" data-name="Dining Room">03 — Dining Room</a>
+        <a href="#bedroom"  class="room-nav__option" data-num="04" data-name="Master Bedroom">04 — Master Bedroom</a>
+        <a href="#bathroom" class="room-nav__option" data-num="05" data-name="Bathroom">05 — Bathroom</a>
+        <a href="#outdoor"  class="room-nav__option" data-num="06" data-name="Outdoor">06 — Outdoor</a>
+      </div>
+    </div>
+
+    <div class="project-layout">
+
+      <aside class="project-sidebar">
+        <p class="project-sidebar__label">Contents</p>
+        <div class="project-sidebar__list">
+          <a href="#living"   class="project-sidebar__item">
+            <span class="project-sidebar__num">01</span>
+            <span class="project-sidebar__name">Living Room</span>
+          </a>
+          <a href="#kitchen"  class="project-sidebar__item">
+            <span class="project-sidebar__num">02</span>
+            <span class="project-sidebar__name">Kitchen</span>
+          </a>
+          <a href="#dining"   class="project-sidebar__item">
+            <span class="project-sidebar__num">03</span>
+            <span class="project-sidebar__name">Dining Room</span>
+          </a>
+          <a href="#bedroom"  class="project-sidebar__item">
+            <span class="project-sidebar__num">04</span>
+            <span class="project-sidebar__name">Master Bedroom</span>
+          </a>
+          <a href="#bathroom" class="project-sidebar__item">
+            <span class="project-sidebar__num">05</span>
+            <span class="project-sidebar__name">Bathroom</span>
+          </a>
+          <a href="#outdoor"  class="project-sidebar__item">
+            <span class="project-sidebar__num">06</span>
+            <span class="project-sidebar__name">Outdoor</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT: populated by JS -->
+      <div class="project-main">
+
+        <div class="project-section" id="living">
+          <p class="project-index__num">01</p>
+          <h2 class="project-section__title">Living Room</h2>
+          <p class="project-section__text" id="text-living"></p>
+          <img id="img-living" src="" alt="Living Room" style="width:100%; margin-top: 24px;">
+        </div>
+
+        <div class="project-section" id="kitchen">
+          <p class="project-index__num">02</p>
+          <h2 class="project-section__title">Kitchen</h2>
+          <p class="project-section__text" id="text-kitchen"></p>
+          <img id="img-kitchen" src="" alt="Kitchen" style="width:100%; margin-top: 24px;">
+        </div>
+
+        <div class="project-section" id="dining">
+          <p class="project-index__num">03</p>
+          <h2 class="project-section__title">Dining Room</h2>
+          <p class="project-section__text" id="text-dining"></p>
+          <img id="img-dining" src="" alt="Dining Room" style="width:100%; margin-top: 24px;">
+        </div>
+
+        <div class="project-section" id="bedroom">
+          <p class="project-index__num">04</p>
+          <h2 class="project-section__title">Master Bedroom</h2>
+          <p class="project-section__text" id="text-bedroom"></p>
+          <img id="img-bedroom" src="" alt="Master Bedroom" style="width:100%; margin-top: 24px;">
+        </div>
+
+        <div class="project-section" id="bathroom">
+          <p class="project-index__num">05</p>
+          <h2 class="project-section__title">Bathroom</h2>
+          <p class="project-section__text" id="text-bathroom"></p>
+          <img id="img-bathroom" src="" alt="Bathroom" style="width:100%; margin-top: 24px;">
+        </div>
+
+        <div class="project-section" id="outdoor">
+          <p class="project-index__num">06</p>
+          <h2 class="project-section__title">Outdoor</h2>
+          <p class="project-section__text" id="text-outdoor"></p>
+          <img id="img-outdoor" src="" alt="Outdoor" style="width:100%; margin-top: 24px;">
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER COMPONENT -->
+  <div id="footer"></div>
+
+  <!-- NAVBAR -->
+<script>
+  fetch('navbar.html')
+  .then(res => res.text())
+  .then(html => {
+    // Inject navbar into DOM
+    document.getElementById('navbar').innerHTML = html;
+
+    const navbar = document.querySelector('.navbar');
+
+    // Use real bottom position of navbar
+    function updateNavHeight() {
+      if (!navbar) return;
+
+      const navBottom = navbar.getBoundingClientRect().bottom;
+
+      document.documentElement.style.setProperty(
+        '--nav-height',
+        Math.max(navBottom, 0) + 'px'
+      );
+    }
+
+    // Initial state
+    navbar.classList.add('navbar--hero');
+
+    // Scroll behavior
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 200);
+
+      if (window.scrollY > 200) {
+        navbar.classList.remove('navbar--hero');
+      } else {
+        navbar.classList.add('navbar--hero');
+      }
+
+      updateNavHeight(); // important
+    });
+
+    // Initial calculation
+    updateNavHeight();
+
+    // Update on resize
+    window.addEventListener('resize', updateNavHeight);
+
+    // Extra safety after full load
+    window.addEventListener('load', updateNavHeight);
+  });
+</script>
+
+  <!-- FOOTER -->
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer').innerHTML = html;
+      });
+  </script>
+
+  <script src="main.js"></script>
+
+  <!-- POPUP -->
+  <script>
+    if (!sessionStorage.getItem('popupShown')) {
+      fetch('popup.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('popup').innerHTML = html;
+          sessionStorage.setItem('popupShown', 'true');
+          document.body.style.overflow = 'hidden';
+        });
+    }
+  </script>
+
+  <!-- PROJECT DATA LOADER -->
+  <script>
+    // Read the project id from the URL: project.html?id=sandstone
+    const params  = new URLSearchParams(window.location.search);
+    const id      = params.get('id');
+
+    fetch('projects.json')
+      .then(res => res.json())
+      .then(data => {
+        const project = data[id];
+
+        // If the id doesn't exist in the JSON, redirect to 404 or portfolio
+        if (!project) {
+          window.location.href = 'portfolio.html';
+          return;
+        }
+
+        // Update the page <title>
+        document.title = `${project.title} — Harrington`;
+
+        // Populate hero
+        document.getElementById('heroImg').src       = project.hero;
+        document.getElementById('heroImg').alt       = project.title;
+        document.getElementById('heroTitle').textContent    = project.title;
+        document.getElementById('heroLocation').textContent = project.location;
+
+        // Populate each section
+        const rooms = ['living', 'kitchen', 'dining', 'bedroom', 'bathroom', 'outdoor'];
+        rooms.forEach(room => {
+          document.getElementById(`text-${room}`).textContent = project.sections[room].text;
+          document.getElementById(`img-${room}`).src          = project.sections[room].img;
+        });
+      });
+  </script>
+
+  <!-- ROOM NAV -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = [
+        { id: 'living',   num: '01', name: 'Living Room' },
+        { id: 'kitchen',  num: '02', name: 'Kitchen' },
+        { id: 'dining',   num: '03', name: 'Dining Room' },
+        { id: 'bedroom',  num: '04', name: 'Master Bedroom' },
+        { id: 'bathroom', num: '05', name: 'Bathroom' },
+        { id: 'outdoor',  num: '06', name: 'Outdoor' },
+      ];
+
+      const roomNav     = document.getElementById('roomNav');
+      const roomNavNum  = document.getElementById('roomNavNum');
+      const roomNavName = document.getElementById('roomNavName');
+      const toggle      = document.getElementById('roomNavToggle');
+      const options     = document.querySelectorAll('.room-nav__option');
+      const sidebar     = document.querySelector('.project-sidebar');
+
+      toggle.addEventListener('click', () => {
+        roomNav.classList.toggle('open');
+      });
+
+      options.forEach(opt => {
+        opt.addEventListener('click', () => {
+          roomNav.classList.remove('open');
+        });
+      });
+
+      window.addEventListener('scroll', () => {
+       roomNav.classList.toggle('room-nav--visible', sidebar.getBoundingClientRect().bottom <= 80);
+
+        let current = sections[0];
+        sections.forEach(s => {
+          const el = document.getElementById(s.id);
+          if (el && el.getBoundingClientRect().top <= 140) current = s;
+        });
+
+        roomNavNum.textContent  = current.num;
+        roomNavName.textContent = current.name;
+
+        options.forEach(opt => {
+          opt.classList.toggle('active', opt.dataset.name === current.name);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

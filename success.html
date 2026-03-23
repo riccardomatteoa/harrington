@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed — Harrington Press</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── DESIGN TOKENS ── */
+    :root {
+      --bg:        #F5F0E8;
+      --surface:   #EDE6DB;
+      --footer-c:  #C8B89A;
+      --text:      #1A1A1A;
+      --soft:      #6B6560;
+      --border:    #D9D0C5;
+      --success:   #4A9A7A;
+      --font-head: 'Playfair Display', Georgia, serif;
+      --font-body: 'Urbanist', 'Helvetica Neue', sans-serif;
+    }
+
+    /* ── BASE ── */
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      width: 100%;
+      padding: 24px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .site-header__logo img { width: 250px; height: auto; display: block; }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 80px 5%;
+    }
+
+    /* ── CARD ── */
+    .card {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    /* ── CONFIRMATION HEADER ── */
+    .card__header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .card__check {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--success);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card__header-text {}
+    .card__label {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--success);
+      margin-bottom: 4px;
+    }
+    .card__title {
+      font-family: var(--font-head);
+      font-size: 36px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    /* ── MESSAGE ── */
+    .card__message {
+      font-size: 12px;
+      color: var(--soft);
+      line-height: 2.9;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* ── ORDER NUMBER ── */
+    .order-number {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .order-number__label {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+    .order-number__value {
+      font-family: monospace;
+      font-size: 13px;
+      color: var(--text);
+      letter-spacing: 0.15em;
+      font-family: 'Urbanist'; 
+    }
+
+    /* ── ORDER DETAILS BOX ── */
+    .order-details {
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .order-details__header {
+      background-color: var(--surface);
+      padding: 14px 24px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--soft);
+      border-bottom: 1px solid var(--border);
+    }
+    .order-details__body { padding: 0 24px; }
+    .order-details__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--soft);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.03em;
+    }
+    .order-details__row:last-child { border-bottom: none; }
+    .order-details__row-label {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .order-details__row-value {
+      color: var(--body);
+      text-align: right;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 12px;
+    }
+    .order-details__row--total .order-details__row-value {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    /* ── SHIPPING BOX ── */
+    .shipping-box {
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .shipping-box__header {
+      background-color: var(--surface);
+      padding: 14px 24px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--soft);
+      border-bottom: 1px solid var(--border);
+    }
+    .shipping-box__body {
+      padding: 20px 24px;
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.8;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--soft)
+;
+    }
+
+    /* ── LINKS ── */
+    .card__links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+       justify-content: center;
+    }
+    .card__link {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      text-decoration: none;
+      transition: border-color 0.2s ease;
+    }
+    .card__link:hover { border-color: var(--text); }
+    .card__link--primary { border-color: var(--text); }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      padding: 40px 5%;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--soft);
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
+    }
+
+    /* ── RESPONSIVE ── */
+   @media (max-width: 1200px) {
+  .main {
+    padding: 7.5%;
+  }
+  .site-header {
+    padding: 30px 7.5%;
+  }
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+     .site-header__logo img {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card__title { font-size: 28px; }
+  .order-details__row { flex-direction: column; gap: 4px; }
+  .order-details__row-value { text-align: left; }
+  .main {
+    padding: 7.5%;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="index.html" class="site-header__logo">
+      <img src="img/logo-black.svg" alt="Harrington">
+    </a>
+  </header>
+
+  <!-- Main content -->
+  <div class="main">
+    <div class="card">
+
+      <!-- Confirmation heading -->
+      <div class="card__header">
+        <div class="card__check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="card__header-text">
+          <p class="card__label">Payment successful</p>
+          <h1 class="card__title">Order confirmed</h1>
+        </div>
+      </div>
+
+      <!-- Message -->
+      <p class="card__message" id="cardMessage">
+        Thank you for your purchase. A confirmation has been sent to your email address.
+      </p>
+
+      <!-- Order number -->
+      <div class="order-number" id="orderNumberBox" style="display:none;">
+        <span class="order-number__label">Order reference</span>
+        <span class="order-number__value" id="orderNumber">—</span>
+      </div>
+
+      <!-- Order details -->
+      <div class="order-details" id="orderDetails" style="display:none;">
+        <div class="order-details__header">Order summary</div>
+        <div class="order-details__body">
+          <div class="order-details__row">
+            <span class="order-details__row-label">Item</span>
+            <span class="order-details__row-value" id="detailItem">—</span>
+          </div>
+          <div class="order-details__row" id="detailQtyRow">
+            <span class="order-details__row-label">Quantity</span>
+            <span class="order-details__row-value" id="detailQty">—</span>
+          </div>
+          <div class="order-details__row">
+            <span class="order-details__row-label">Email</span>
+            <span class="order-details__row-value" id="detailEmail">—</span>
+          </div>
+          <div class="order-details__row order-details__row--total">
+            <span class="order-details__row-label">Total charged</span>
+            <span class="order-details__row-value" id="detailTotal">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shipping address (hardcover only) -->
+      <div class="shipping-box" id="shippingBox" style="display:none;">
+        <div class="shipping-box__header">Shipping address</div>
+        <div class="shipping-box__body" id="shippingAddress">—</div>
+      </div>
+
+      <!-- Links -->
+      <div class="card__links">
+        <a href="index.html" class="card__link card__link--primary">return to homepage</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    © 2026 Harrington. All rights reserved.
+  </footer>
+
+  <script>
+
+    const order = JSON.parse(sessionStorage.getItem('harrington_order') || 'null');
+
+    if (order) {
+      sessionStorage.removeItem('harrington_order');
+
+      const isEbook   = order.format === 'Ebook';
+
+      // Message
+      document.getElementById('cardMessage').innerHTML = isEbook
+  ? `Thank you for your purchase.<br>A confirmation has been sent to <strong>${order.email}</strong>.`
+  : `Thank you for your purchase.<br>A confirmation has been sent to <strong>${order.email}</strong>.<br>Your copy of <em>The Quiet Room</em> will be dispatched within 3–5 business days.`;
+      // Order number
+      document.getElementById('orderNumber').textContent = order.orderId
+  ? '#' + order.orderId.replace('pi_', '').substring(0, 14).toUpperCase()
+  : '#' + Date.now().toString(36).toUpperCase();
+      document.getElementById('orderNumberBox').style.display = 'flex';
+
+      // Order details
+      document.getElementById('detailItem').textContent  = 'The Quiet Room — ' + order.format;
+      document.getElementById('detailQty').textContent   = order.quantity + (order.quantity > 1 ? ' copies' : ' copy');
+      document.getElementById('detailEmail').textContent = order.email;
+      document.getElementById('detailTotal').textContent = order.total;
+      document.getElementById('orderDetails').style.display = 'block';
+
+      // Quantity row — hide for ebook
+      if (isEbook) {
+        document.getElementById('detailQtyRow').style.display = 'none';
+      }
+
+      // Shipping address — hardcover only
+      if (!isEbook && order.shipping) {
+        const s = order.shipping;
+        const a = s.address || {};
+        const lines = [
+          s.name,
+          a.line1,
+          a.line2,
+          [a.city, a.state, a.postal_code].filter(Boolean).join(', '),
+          a.country
+        ].filter(Boolean);
+        document.getElementById('shippingAddress').innerHTML = lines.join('<br>');
+        document.getElementById('shippingBox').style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>

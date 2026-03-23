@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service — Harrington</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR COMPONENT -->
+  <div id="navbar"></div>
+
+  <div id="popup"></div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="service-color-hero">
+      <div class="service-color-hero__inner">
+        <h1 class="service-color-hero__title" id="serviceTitle"></h1>
+      </div>
+      <div class="service-color-hero__line"></div>
+    </section>
+
+    <div class="service-hero-image">
+      <img id="serviceHeroImg" src="" alt="">
+    </div>
+
+    <!-- INTRO -->
+    <section class="service-about">
+      <div class="service-detail__container">
+        <p class="service-intro__text" id="serviceIntro"></p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <div class="service-detail__container">
+      <div class="service-detail__process">
+        <p class="section-label">The process</p>
+        <div class="process__steps process__steps--grid" id="processSteps">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="service-gallery">
+      <div class="service-gallery__grid" id="serviceGallery">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- DELIVERABLES -->
+    <section class="service-benefits">
+      <div class="service-benefits__container">
+        <p class="section-label">Deliverables</p>
+        <div class="service-benefits__grid" id="serviceDeliverables">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="service-projects">
+      <div class="service-projects__container">
+        <p class="section-label">Featured projects</p>
+        <div class="service-projects__grid" id="featuredProjects">
+          <!-- Populated by JS -->
+        </div>
+        <a href="portfolio.html" class="service-projects__link">See all projects &rarr;</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq section">
+      <div class="faq__container">
+        <h2 class="faq__title">Frequently Asked Questions</h2>
+        <div class="faq__list" id="serviceFaq">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- FORM -->
+    <section class="service-form">
+      <div class="service-form__container">
+        <div class="service-form__left">
+          <h2 class="service-detail__title">Book a consultation</h2>
+        </div>
+        <div class="service-form__right">
+          <form id="consultationForm" netlify class="consultation-form">
+
+            <div class="consultation-form__section">
+              <h3 class="consultation-form__section-title">1. The Essentials</h3>
+              <div class="consultation-form__row">
+                <div class="consultation-form__field">
+                  <label>Full name</label>
+                  <input type="text" name="full-name" required>
+                </div>
+                <div class="consultation-form__field">
+                  <label>Email address</label>
+                  <input type="email" name="email" required>
+                </div>
+              </div>
+              <div class="consultation-form__field">
+                <label>Type of service</label>
+                <select name="service" id="formServiceSelect">
+                  <option>Interior Design</option>
+                  <option>Styling &amp; Curation</option>
+                  <option>Project Direction</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="consultation-form__section">
+              <h3 class="consultation-form__section-title">2. Your Home</h3>
+              <div class="consultation-form__row">
+                <div class="consultation-form__field">
+                  <label>Project location</label>
+                  <input type="text" name="location" required>
+                </div>
+                <div class="consultation-form__field">
+                  <label>Approximate square footage</label>
+                  <input type="text" name="square-footage" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="consultation-form__section">
+              <h3 class="consultation-form__section-title">3. Budget &amp; Timeline</h3>
+              <div class="consultation-form__field">
+                <label>Estimated budget</label>
+                <select name="budget">
+                  <option>Under $25,000</option>
+                  <option>$25,000 – $50,000</option>
+                  <option>$50,000 – $100,000</option>
+                  <option>Over $100,000</option>
+                </select>
+              </div>
+              <div class="consultation-form__row">
+                <div class="consultation-form__field">
+                  <label>Start timeframe</label>
+                  <input type="text" name="start-timeframe" required>
+                </div>
+                <div class="consultation-form__field">
+                  <label>Completion timeframe</label>
+                  <input type="text" name="completion-timeframe" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="consultation-form__section">
+              <h3 class="consultation-form__section-title">4. Inspiration</h3>
+              <div class="consultation-form__field">
+                <label>Which Harrington projects best align with your vision?</label>
+                <input type="text" name="inspiration" required>
+              </div>
+              <div class="consultation-form__field">
+                <label>Pinterest board link</label>
+                <input type="text" name="pinterest" required>
+              </div>
+            </div>
+
+            <div class="consultation-form__section">
+              <h3 class="consultation-form__section-title">5. Project Objectives</h3>
+              <div class="consultation-form__field">
+                <label>What is the main reason you would like to engage Harrington for your project?</label>
+                <textarea rows="5" name="objectives" required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="consultation-form__submit btn">Submit Inquiry</button>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER COMPONENT -->
+  <div id="footer"></div>
+
+  <!-- NAVBAR -->
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar').innerHTML = html;
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.add('scrolled');
+        window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
+      });
+  </script>
+
+  <!-- FOOTER -->
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer').innerHTML = html;
+      });
+  </script>
+
+  <!-- FAQ ACCORDION -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.faq__question').forEach(btn => {
+          btn.addEventListener('click', () => {
+            btn.parentElement.classList.toggle('open');
+          });
+        });
+      }, 300);
+    });
+  </script>
+
+  <script src="main.js"></script>
+
+  <!-- POPUP -->
+  <script>
+    if (!sessionStorage.getItem('popupShown')) {
+      fetch('popup.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('popup').innerHTML = html;
+          sessionStorage.setItem('popupShown', 'true');
+          document.body.style.overflow = 'hidden';
+        });
+    }
+  </script>
+
+  <!-- FEATURED PROJECTS LOADER -->
+<script>
+  fetch('projects.json')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('featuredProjects').innerHTML = Object.entries(data)
+            .sort(([, a], [, b]) => new Date(b.date) - new Date(a.date))
+            .filter(([id, p]) => p.featured)
+            .map(([id, p]) => `
+          <a href="project.html?id=${id}" class="portfolio__item">
+            <div class="portfolio__image">
+              <img src="${p.cover}" alt="${p.title}">
+            </div>
+            <p class="portfolio__location">${p.location}</p>
+            <h2 class="portfolio__title">${p.title}</h2>
+          </a>
+        `).join('');
+    });
+</script>
+
+  <!-- SERVICE DATA LOADER -->
+  <script>
+    const params  = new URLSearchParams(window.location.search);
+    const id      = params.get('id');
+
+    fetch('services.json')
+      .then(res => res.json())
+      .then(data => {
+        const s = data[id];
+
+        // If the id doesn't exist, redirect to services page
+        if (!s) {
+          window.location.href = 'services.html';
+          return;
+        }
+
+        // Page title
+        document.title = s.pageTitle;
+
+        // Hero
+        document.getElementById('serviceTitle').textContent   = s.title;
+        document.getElementById('serviceHeroImg').src         = s.heroImage.src;
+        document.getElementById('serviceHeroImg').alt         = s.heroImage.alt;
+
+        // Intro
+        document.getElementById('serviceIntro').textContent = s.intro;
+
+        // Process steps (background images are shared: process-1/2/3.webp)
+        const processImgs = ['img/process-1.webp', 'img/process-2.webp', 'img/process-3.webp'];
+        document.getElementById('processSteps').innerHTML = s.process.map((step, i) => `
+          <div class="process__step">
+            <img src="${processImgs[i]}" alt="" class="process__step-bg">
+            <h3 class="process__step-title">${step.title}</h3>
+            <p class="process__step-text">${step.text}</p>
+          </div>
+        `).join('');
+
+        // Gallery
+        document.getElementById('serviceGallery').innerHTML = s.gallery.map(img => `
+          <img src="${img.src}" alt="${img.alt}">
+        `).join('');
+
+        // Deliverables
+        document.getElementById('serviceDeliverables').innerHTML = s.deliverables.map(d => `
+          <div class="service-benefits__item">
+            ${d.icon}
+            <h3 class="service-benefits__item-title">${d.title}</h3>
+            <p class="service-benefits__item-text">${d.text}</p>
+          </div>
+        `).join('');
+
+        // FAQ
+        document.getElementById('serviceFaq').innerHTML = s.faq.map(f => `
+          <div class="faq__item">
+            <button class="faq__question">${f.question}<span class="faq__icon">+</span></button>
+            <div class="faq__answer"><p>${f.answer}</p></div>
+          </div>
+        `).join('');
+
+        // Re-attach FAQ listeners after dynamic render
+        document.querySelectorAll('.faq__question').forEach(btn => {
+          btn.addEventListener('click', () => {
+            btn.parentElement.classList.toggle('open');
+          });
+        });
+
+        // Form: set name attribute and pre-select the correct service option
+        document.getElementById('consultationForm').setAttribute('name', s.formName);
+        const select = document.getElementById('formServiceSelect');
+        Array.from(select.options).forEach(opt => {
+          opt.selected = opt.text === s.formService;
+        });
+      });
+  </script>
+
+</body>
+</html>
