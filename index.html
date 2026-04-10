@@ -152,5 +152,25 @@
 
   <script src="main.js"></script>
 
+
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar').innerHTML = html;
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.add('navbar--hero');
+        window.addEventListener('scroll', () => {
+          navbar.classList.toggle('scrolled', window.scrollY > 50);
+          if (window.scrollY > 50) navbar.classList.remove('navbar--hero');
+          else navbar.classList.add('navbar--hero');
+        });
+      });
+  </script>
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('footer').innerHTML = html; });
+  </script>
 </body>
 </html>

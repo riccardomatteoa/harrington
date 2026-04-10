@@ -300,5 +300,34 @@
       });
   </script>
 
+
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar').innerHTML = html;
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.add('scrolled');
+        window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
+      });
+  </script>
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer').innerHTML = html;
+      });
+  </script>
+  <script>
+    if (!sessionStorage.getItem('popupShown')) {
+      fetch('popup.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('popup').innerHTML = html;
+          sessionStorage.setItem('popupShown', 'true');
+          document.body.style.overflow = 'hidden';
+        });
+    }
+  </script>
 </body>
 </html>
