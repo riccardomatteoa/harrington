@@ -17,13 +17,7 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
-  <!-- Navbar component -->
-  <div id="navbar"></div>
-
-  <!-- Popup component -->
-  <div id="popup"></div>
+<body>  <div id="navbar"></div>  <div id="popup"></div>
 
   <main>
 
@@ -76,33 +70,7 @@
   </main>
 
   <!-- Instagram component -->
-  <div id="instagram"></div>
-
-  <!-- Footer component -->
-  <div id="footer"></div>
-
-  <!-- Navbar loader -->
-  <script>
-    fetch('navbar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('navbar').innerHTML = html;
-        const navbar = document.querySelector('.navbar');
-        navbar.classList.add('scrolled');
-        window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
-      });
-  </script>
-
-  <!-- Footer loader -->
-  <script>
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('footer').innerHTML = html;
-      });
-  </script>
-
-  <!-- Instagram loader -->
+  <div id="instagram"></div>  <div id="footer"></div>  <!-- Instagram loader -->
   <script>
     fetch('instagram.html')
       .then(res => res.text())
@@ -112,20 +80,5 @@
   </script>
 
   <!-- Shared scripts -->
-  <script src="main.js"></script>
-
-  <!-- Popup loader — shown once per session -->
-  <script>
-    if (!sessionStorage.getItem('popupShown')) {
-      fetch('popup.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('popup').innerHTML = html;
-          sessionStorage.setItem('popupShown', 'true');
-          document.body.style.overflow = 'hidden';
-        });
-    }
-  </script>
-
-</body>
+  <script src="main.js"></script></body>
 </html>

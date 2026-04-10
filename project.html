@@ -19,10 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
-  <!-- NAVBAR COMPONENT -->
-  <div id="navbar"></div>
+<body>  <div id="navbar"></div>
 
   <div id="popup"></div>
 
@@ -136,83 +133,15 @@
 
     </div>
 
-  </main>
-
-  <!-- FOOTER COMPONENT -->
-  <div id="footer"></div>
+  </main>  <div id="footer"></div>
 
   <!-- NAVBAR -->
-<script>
-  fetch('navbar.html')
-  .then(res => res.text())
-  .then(html => {
-    // Inject navbar into DOM
-    document.getElementById('navbar').innerHTML = html;
-
-    const navbar = document.querySelector('.navbar');
-
-    // Use real bottom position of navbar
-    function updateNavHeight() {
-      if (!navbar) return;
-
-      const navBottom = navbar.getBoundingClientRect().bottom;
-
-      document.documentElement.style.setProperty(
-        '--nav-height',
-        Math.max(navBottom, 0) + 'px'
-      );
-    }
-
-    // Initial state
-    navbar.classList.add('navbar--hero');
-
-    // Scroll behavior
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 200);
-
-      if (window.scrollY > 200) {
-        navbar.classList.remove('navbar--hero');
-      } else {
-        navbar.classList.add('navbar--hero');
-      }
-
-      updateNavHeight(); // important
-    });
-
-    // Initial calculation
-    updateNavHeight();
-
-    // Update on resize
-    window.addEventListener('resize', updateNavHeight);
-
-    // Extra safety after full load
-    window.addEventListener('load', updateNavHeight);
-  });
-</script>
 
   <!-- FOOTER -->
-  <script>
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('footer').innerHTML = html;
-      });
-  </script>
 
   <script src="main.js"></script>
 
   <!-- POPUP -->
-  <script>
-    if (!sessionStorage.getItem('popupShown')) {
-      fetch('popup.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('popup').innerHTML = html;
-          sessionStorage.setItem('popupShown', 'true');
-          document.body.style.overflow = 'hidden';
-        });
-    }
-  </script>
 
   <!-- PROJECT DATA LOADER -->
   <script>

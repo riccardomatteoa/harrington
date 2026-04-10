@@ -20,13 +20,7 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
-  <!-- Navbar component -->
-  <div id="navbar"></div>
-
-  <!-- Popup component -->
-  <div id="popup"></div>
+<body>  <div id="navbar"></div>  <div id="popup"></div>
 
   <main>
 
@@ -109,33 +103,7 @@
 
     <div class="section-divider"></div>
 
-  </main>
-
-  <!-- Footer component -->
-  <div id="footer"></div>
-
-  <!-- Navbar loader -->
-  <script>
-    fetch('navbar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('navbar').innerHTML = html;
-        const navbar = document.querySelector('.navbar');
-        navbar.classList.add('scrolled');
-        window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
-      });
-  </script>
-
-  <!-- Footer loader -->
-  <script>
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('footer').innerHTML = html;
-      });
-  </script>
-
-  <!-- Mapbox map -->
+  </main>  <div id="footer"></div>  <!-- Mapbox map -->
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoicmljY2FyZG9tYXR0ZW8tYSIsImEiOiJjbW42YzJ1dzYwM3ExMnJwZHlxdHpub2UyIn0.Coy_gxX3pfLJKcese7o4ow';
@@ -205,20 +173,5 @@
   </script>
 
   <!-- Shared scripts -->
-  <script src="main.js"></script>
-
-  <!-- Popup loader — shown once per session -->
-  <script>
-    if (!sessionStorage.getItem('popupShown')) {
-      fetch('popup.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('popup').innerHTML = html;
-          sessionStorage.setItem('popupShown', 'true');
-          document.body.style.overflow = 'hidden';
-        });
-    }
-  </script>
-
-</body>
+  <script src="main.js"></script></body>
 </html>

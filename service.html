@@ -12,10 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
-  <!-- NAVBAR COMPONENT -->
-  <div id="navbar"></div>
+<body>  <div id="navbar"></div>
 
   <div id="popup"></div>
 
@@ -185,31 +182,11 @@
       </div>
     </section>
 
-  </main>
-
-  <!-- FOOTER COMPONENT -->
-  <div id="footer"></div>
+  </main>  <div id="footer"></div>
 
   <!-- NAVBAR -->
-  <script>
-    fetch('navbar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('navbar').innerHTML = html;
-        const navbar = document.querySelector('.navbar');
-        navbar.classList.add('scrolled');
-        window.addEventListener('scroll', () => navbar.classList.add('scrolled'));
-      });
-  </script>
 
   <!-- FOOTER -->
-  <script>
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('footer').innerHTML = html;
-      });
-  </script>
 
   <!-- FAQ ACCORDION -->
   <script>
@@ -227,17 +204,6 @@
   <script src="main.js"></script>
 
   <!-- POPUP -->
-  <script>
-    if (!sessionStorage.getItem('popupShown')) {
-      fetch('popup.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('popup').innerHTML = html;
-          sessionStorage.setItem('popupShown', 'true');
-          document.body.style.overflow = 'hidden';
-        });
-    }
-  </script>
 
   <!-- FEATURED PROJECTS LOADER -->
 <script>
